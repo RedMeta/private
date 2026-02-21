@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import CoffeeBackground from './CoffeeBackground';
@@ -5,6 +6,26 @@ interface HeroProps {
   theme: 'light' | 'dark';
 }
 export function Hero({ theme }: HeroProps) {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia('(max-width: 767px)').matches : false
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
+    };
+
+    setIsMobile(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
+
+  const beanCount = isMobile ? Math.ceil(75 / 2) : 75;
+
   const containerVariants = {
     hidden: {
       opacity: 0
@@ -42,7 +63,7 @@ export function Hero({ theme }: HeroProps) {
 
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full z-10 pt-20">
-        <CoffeeBackground beanCount={75}>
+        <CoffeeBackground beanCount={beanCount}>
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -75,7 +96,7 @@ export function Hero({ theme }: HeroProps) {
 
             <motion.div
               variants={itemVariants}
-              className="mt-16 md:mt-24 max-w-md pb-12">
+              className="mt-16 md:mt-24 max-w-md pb-4 md:pb-12">
 
               <p
                 className={`text-lg md:text-xl font-semibold leading-relaxed mb-8 ${theme === 'dark' ? 'text-warm-white drop-shadow-sm' : 'text-near-black bg-cream/90 px-3 py-2 rounded-sm'}`}>
