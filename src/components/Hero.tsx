@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import CoffeeBackground from './CoffeeBackground';
@@ -7,38 +6,6 @@ interface HeroProps {
   theme: 'light' | 'dark';
 }
 export function Hero({ theme }: HeroProps) {
-  const getScreenSize = () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
-    const isMobile = width < 768;
-    const isSmallViewport = width < 480;
-    const isTall = height > width * 1.5;
-
-    return { isMobile, isSmallViewport, isTall };
-  };
-
-  const [screenSize, setScreenSize] = useState(() => {
-    if (typeof window === 'undefined') return { isMobile: false, isSmallViewport: false, isTall: false };
-    return getScreenSize();
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize(getScreenSize());
-    };
-
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('orientationchange', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      window.removeEventListener('orientationchange', handleResize);
-    };
-  }, []);
-
-  const beanCount = screenSize.isMobile ? 7 : 75;
-  const topPadding = screenSize.isTall ? 'pt-12' : 'pt-16 md:pt-20';
-  const bottomSpacing = screenSize.isSmallViewport ? 'pb-2' : 'pb-4 md:pb-12';
 
   const containerVariants = {
     hidden: {
@@ -69,15 +36,15 @@ export function Hero({ theme }: HeroProps) {
 
   return (
     <section
-      className={`relative min-h-[100svh] md:min-h-screen w-full flex flex-col justify-center overflow-hidden transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black text-warm-white' : 'bg-cream text-near-black'}`}>
+      className={`relative w-full flex flex-col justify-start overflow-hidden transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black text-warm-white' : 'bg-cream text-near-black'}`}>
 
       {/* Noise Texture Overlay */}
       <div
         className={`absolute inset-0 bg-noise pointer-events-none mix-blend-overlay ${theme === 'dark' ? 'opacity-20' : 'opacity-40'}`} />
 
 
-      <div className={`max-w-7xl mx-auto px-6 md:px-12 w-full z-10 ${topPadding}`}>
-        <CoffeeBackground beanCount={beanCount}>
+      <div className={`max-w-7xl mx-auto px-6 md:px-12 w-full z-10 pt-20 md:pt-30`}>
+        <CoffeeBackground beanCount={50}>
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -136,10 +103,6 @@ export function Hero({ theme }: HeroProps) {
           </motion.div>
         </CoffeeBackground>
       </div>
-
-      {/* Decorative Elements */}
-      <div
-        className={`absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-t pointer-events-none ${theme === 'dark' ? 'from-sensity-red/10 to-transparent' : 'from-sensity-red/5 to-transparent'}`} />
     </section >);
 
 }

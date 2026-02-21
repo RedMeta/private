@@ -28,7 +28,12 @@
 .coffee-shell {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: auto;
+}
+
+.coffee-content {
+  position: relative;
+  z-index: 1;
 }
 
 .coffee-back {
@@ -48,11 +53,11 @@
   min-height: 320px;
   padding: 1.25rem;
   background-image: url('/sack.jpg');
-  background-size: 100% 100%;
+  background-size: 115% 115%;
   background-position: center;
   background-repeat: no-repeat;
-  aspect-ratio: 1;
   opacity: 0.95;
+  aspect-ratio: 1;
 }
 
 .sack-back h2 {
@@ -75,11 +80,6 @@
   background-position: center;
   background-repeat: no-repeat;
   pointer-events: none;
-}
-
-.coffee-content {
-  position: relative;
-  z-index: 1;
 }
 
 
