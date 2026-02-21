@@ -19,7 +19,7 @@ export function Contact({ theme }: ContactProps) {
   return (
     <section
       id="contact"
-      className={` coffee-back py-24 md:py-32 transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black text-warm-white' : 'bg-cream text-near-black'}`}>
+      className={`py-24 md:py-32 transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black text-warm-white' : 'bg-cream text-near-black'}`}>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12">
         <motion.div

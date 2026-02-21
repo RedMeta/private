@@ -6,7 +6,6 @@ import { Collection } from '../components/Collection';
 import { Location } from '../components/Location';
 import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
-import CoffeeBackground from '../components/CoffeeBackground';
 
 export function HomePage() {
 
@@ -20,8 +19,7 @@ export function HomePage() {
 
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <main>
-        <CoffeeBackground children={<Hero theme={theme} />} beanCount={100} />
-
+        <Hero theme={theme} />
         {/* <Hero theme={theme} /> */}
         <Philosophy theme={theme} />
         <Collection theme={theme} />

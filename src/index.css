@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap');
-
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -29,31 +25,60 @@
   }
 }
 
-.coffee-back {
+.coffee-shell {
   position: relative;
   width: 100%;
-  height: 100vh;
-  /* or whatever size you want */
-  background-color: #f5f5dc;
-  /* optional background */
+  min-height: 100vh;
+}
+
+.coffee-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+}
+
+.sack-back {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  padding: 1.5rem;
+  background-image: url('/sack.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.95;
+}
+
+.sack-back h2 {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .sack-back {
+    min-height: 100%;
+  }
 }
 
 .bean {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  background-image: url('/coffee-bean.svg');
-  background-size: contain;
+  width: var(--bean-size, 50px);
+  height: var(--bean-size, 50px);
+  background-image: url('/coffee-bean-real.png');
+  background-size: 100% 100%;
+  background-position: center;
   background-repeat: no-repeat;
   pointer-events: none;
-  /* so beans don’t block clicks */
 }
 
 .coffee-content {
   position: relative;
   z-index: 1;
-  /* ensures your actual content sits above beans */
 }
 
 

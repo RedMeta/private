@@ -1,7 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import CoffeeBackground from './CoffeeBackground';
 interface MenuItem {
   id: number;
   name: string;
@@ -64,8 +62,6 @@ export function Collection({ theme }: CollectionProps) {
         ? 'bg-near-black text-warm-white'
         : 'bg-cream text-near-black'
         }`}>
-      <CoffeeBackground count={100} />
-
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-16 flex justify-between items-end">
         <motion.h2
           initial={{

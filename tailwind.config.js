@@ -1,10 +1,10 @@
-
+/* eslint-env node */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-  './index.html',
-  './src/**/*.{js,ts,jsx,tsx}'
-],
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}'
+  ],
   darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {
@@ -17,8 +17,8 @@ module.exports = {
         'warm-white': '#FAFAF8',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        serif: ['Outfit', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         'tighter-editorial': '-0.04em',

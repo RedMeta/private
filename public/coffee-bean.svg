@@ -1,10 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg fill="#40312f" width="800px" height="800px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+<svg style="max-height: 500px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="11.7232 8.268799999999999 41.6 46.848" fill="#40312f" width="41.6" height="46.848">
     <g transform="matrix(1,0,0,1,-1152,-256)">
-        <rect id="Icons" x="0" y="0" width="1280" height="800" style="fill:none;"/>
-        <g id="Icons1" serif:id="Icons">
+        <rect style="fill:none;" height="800" width="800" y="0" x="0" id="Icons"/>
+        <g id="Icons1">
             <g id="Strike">
             </g>
             <g id="H1">
@@ -33,7 +30,7 @@
             </g>
             <g id="Pen">
             </g>
-            <g id="Pen1" serif:id="Pen">
+            <g id="Pen1">
             </g>
             <g id="clock">
             </g>
@@ -65,7 +62,7 @@
             </g>
             <g id="shredder">
             </g>
-            <g id="spinner--loading--dots-" serif:id="spinner [loading, dots]">
+            <g id="spinner--loading--dots-">
             </g>
             <g id="react">
             </g>
@@ -81,11 +78,11 @@
             </g>
             <g transform="matrix(0.638317,0.368532,-0.368532,0.638317,785.021,-208.975)">
                 <g id="coffee-beans">
-                    <g id="coffee-bean1" serif:id="coffee-bean">
+                    <g id="coffee-bean1">
                     </g>
                 </g>
             </g>
-            <g id="coffee-bean-filled" transform="matrix(0.866025,0.5,-0.5,0.866025,717.879,-387.292)">
+            <g transform="matrix(0.866025,0.5,-0.5,0.866025,717.879,-387.292)" id="coffee-bean-filled">
                 <g transform="matrix(1,0,0,1,0,-0.699553)">
                     <path d="M737.673,328.231C738.494,328.056 739.334,328.427 739.757,329.152C739.955,329.463 740.106,329.722 740.106,329.722C740.106,329.722 745.206,338.581 739.429,352.782C737.079,358.559 736.492,366.083 738.435,371.679C738.697,372.426 738.482,373.258 737.89,373.784C737.298,374.31 736.447,374.426 735.735,374.077C730.192,371.375 722.028,365.058 722.021,352C722.015,340.226 728.812,330.279 737.673,328.231Z"/>
                 </g>
@@ -95,7 +92,7 @@
             </g>
             <g transform="matrix(0.638317,0.368532,-0.368532,0.638317,913.062,-208.975)">
                 <g id="coffee-beans-filled">
-                    <g id="coffee-bean2" serif:id="coffee-bean">
+                    <g id="coffee-bean2">
                     </g>
                 </g>
             </g>

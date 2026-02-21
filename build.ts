@@ -35,7 +35,7 @@ Example:
 
 const toCamelCase = (str: string): string => str.replace(/-([a-z])/g, (_, letter: string) => letter.toUpperCase());
 
-const parseValue = (value: string): any => {
+const parseValue = (value: string): string | number | boolean | string[] => {
   if (value === "true") return true;
   if (value === "false") return false;
 
@@ -88,8 +88,11 @@ function parseArgs(): Partial<Bun.BuildConfig> {
         );
         continue;
       }
-      const parentKey = parts[0]!;
-      const childKey = parts[1]!;
+      const parentKey = parts[0];
+      const childKey = parts[1];
+      if (!parentKey || !childKey) {
+        continue;
+      }
       const existing = config[parentKey];
       if (typeof existing !== "object" || existing === null || Array.isArray(existing)) {
         config[parentKey] = {};

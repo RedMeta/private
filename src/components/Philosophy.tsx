@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 interface PhilosophyProps {
   theme: 'light' | 'dark';
@@ -42,13 +41,15 @@ export function Philosophy({ theme }: PhilosophyProps) {
             }}
             transition={{
               duration: 0.8
-            }}>
-
-            <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tight uppercase leading-none">
-              Our
-              <br />
-              <span className="text-sensity-green">Passion</span>
-            </h2>
+            }}
+            className="h-full">
+            <div className='sack-back'>
+              <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tight uppercase leading-none">
+                Pasioni
+                <br />
+                <span className="text-sensity-green">Ynë</span>
+              </h2>
+            </div>
           </motion.div>
 
           <motion.div
@@ -70,24 +71,24 @@ export function Philosophy({ theme }: PhilosophyProps) {
             className="space-y-8">
 
             <p className="text-xl md:text-2xl font-light leading-relaxed">
-              At Sensity, we believe espresso is the purest expression of
-              coffee. It is an art form that demands precision, respect, and
-              above all, passion.
+              Te Sensity, ne besojmë se espresso është shprehja më e pastër e
+              kafesë. Është një formë arti që kërkon precizion, respekt dhe,
+              mbi të gjitha, pasion.
             </p>
             <p
               className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
 
-              Our journey began in the bustling piazzas of Italy, where coffee
-              is not just a drink, but a moment of connection. We've brought
-              that spirit here, refining it with modern techniques while
-              honoring the timeless traditions of the barista craft.
+              Udhëtimi ynë nisi në piazzat plot jetë të Italisë, ku kafeja nuk
+              është thjesht një pije, por një moment lidhjeje. Ne e kemi sjellë
+              këtë frymë këtu, duke e rafinuar me teknika moderne dhe duke
+              nderuar traditat e përjetshme të artit të baristës.
             </p>
             <p
               className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
 
-              Every shot we pull is a testament to our obsession with quality.
-              From the grind to the tamp, from the pressure to the pour—we chase
-              the perfect crema, the perfect balance, the perfect moment.
+              Çdo kafe që përgatisim është dëshmi e fiksimit tonë me cilësinë.
+              Nga pjekja te stampimi, nga presioni te derdhja—ne ndjekim kremin
+              perfekt, balancën perfekte dhe momentin perfekt.
             </p>
           </motion.div>
         </div>

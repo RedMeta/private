@@ -1,4 +1,3 @@
-import React from 'react';
 import { Instagram, Twitter, Facebook } from 'lucide-react';
 interface FooterProps {
   theme: 'light' | 'dark';
