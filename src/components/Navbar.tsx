@@ -108,13 +108,13 @@ export function Navbar({ theme, onToggleTheme, beanImage = 'svg', onToggleBeanIm
 
           <div className="flex items-center gap-2">
             <ThemeToggle theme={theme} onToggle={onToggleTheme} />
-            <BeanImageToggle beanImage={beanImage} onToggle={onToggleBeanImage} />
+            {/* <BeanImageToggle beanImage={beanImage} onToggle={onToggleBeanImage} /> */}
           </div>
         </div>
 
         {/* Mobile Menu Toggle */}
         <div className="flex items-center gap-4 md:hidden z-50">
-          <BeanImageToggle beanImage={beanImage} onToggle={onToggleBeanImage} />
+          {/* <BeanImageToggle beanImage={beanImage} onToggle={onToggleBeanImage} /> */}
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

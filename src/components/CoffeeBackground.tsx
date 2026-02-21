@@ -43,21 +43,24 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '', beanImage 
       const bean = document.createElement('div');
       bean.classList.add('bean');
 
+      bean.classList.add('photo-mode');
+
       // Add photo-mode class if using photo, otherwise add color classes
-      if (beanImage === 'photo') {
-        bean.classList.add('photo-mode');
-      } else {
-        const colors = ['red', 'green', 'white'] as const;
-        randomColor = colors[Math.floor(Math.random() * colors.length)];
-        bean.classList.add(`bean-${randomColor}`);
-      }
+      // if (beanImage === 'photo') {
+      // bean.classList.add('photo-mode');
+      // } else {
+      // const colors = ['red', 'green', 'white'] as const;
+      // randomColor = colors[Math.floor(Math.random() * colors.length)];
+      // bean.classList.add(`bean-${randomColor}`);
+      // }
 
       const size = 34 + Math.random() * 28;
       bean.style.setProperty('--bean-size', `${size}px`);
       bean.style.willChange = 'transform';
 
       // Set background image based on beanImage prop
-      const bgImage = beanImage === 'photo' ? "url('/coffee-bean-photo.png')" : "url('/coffee-bean-roast.svg')";
+      // const bgImage = beanImage === 'photo' ? "url('/coffee-bean-photo.png')" : "url('/coffee-bean-roast.svg')";
+      const bgImage = "url('/coffee-bean-photo.png')";
       bean.style.backgroundImage = bgImage;
 
       const boundsWidth = container.clientWidth;
