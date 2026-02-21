@@ -7,11 +7,6 @@ interface HeroProps {
   theme: 'light' | 'dark';
 }
 export function Hero({ theme }: HeroProps) {
-  const [screenSize, setScreenSize] = useState(() => {
-    if (typeof window === 'undefined') return { isMobile: false, isSmallViewport: false, isTall: false };
-    return getScreenSize();
-  });
-
   const getScreenSize = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -21,6 +16,11 @@ export function Hero({ theme }: HeroProps) {
 
     return { isMobile, isSmallViewport, isTall };
   };
+
+  const [screenSize, setScreenSize] = useState(() => {
+    if (typeof window === 'undefined') return { isMobile: false, isSmallViewport: false, isTall: false };
+    return getScreenSize();
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -110,7 +110,7 @@ export function Hero({ theme }: HeroProps) {
 
             <motion.div
               variants={itemVariants}
-              className={`mt-16 md:mt-24 max-w-md ${bottomSpacing}`}>
+              className="mt-16 md:mt-24 max-w-md pb-4 md:pb-12">
 
               <p
                 className={`text-lg md:text-xl font-semibold leading-relaxed mb-8 ${theme === 'dark' ? 'text-warm-white drop-shadow-sm' : 'text-near-black bg-cream/90 px-3 py-2 rounded-sm'}`}>
