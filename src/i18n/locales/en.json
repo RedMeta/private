@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "title1": "Sensity",
+    "title2": "Espresso",
+    "title3": "Lovers",
+    "subtitle": "Old streets. Early mornings. A short, strong espresso at the counter. That Italian spirit stays with us—reborn at Sensity with modern clarity, smooth depth, and a taste that lingers.",
+    "cta": "Explore Our Menu"
+  },
+  "nav": {
+    "philosophy": "Philosophy",
+    "menu": "Menu",
+    "location": "Location",
+    "contact": "Contact"
+  },
+  "philosophy": {
+    "title1": "Our\n",
+    "title2": "Philosophy",
+    "text1": "At Sensity, we believe espresso is the purest expression of coffee. It's not just about the rich crema or the intense aroma—it's about respecting tradition while embracing innovation.",
+    "text2": "Each cup tells a story: from the sun-drenched highlands where our beans are grown, to the precise moment when water meets coffee at exactly 9 bars of pressure.",
+    "text3": "We are lovers of the ritual, the pause, the perfect sip that makes everything right."
+  },
+  "menu": {
+    "title1": "Our",
+    "title2": "Menu",
+    "viewDetails": "View Details",
+    "items": {
+      "classicEspresso": {
+        "name": "Classic Espresso",
+        "description": "Bold and intense, our signature blend.",
+        "price": "€2.50"
+      },
+      "cappuccino": {
+        "name": "Cappuccino",
+        "description": "Velvety foam meets rich espresso.",
+        "price": "€3.50"
+      },
+      "macchiato": {
+        "name": "Macchiato",
+        "description": "Espresso kissed with steamed milk.",
+        "price": "€3.00"
+      },
+      "affogato": {
+        "name": "Affogato",
+        "description": "Vanilla gelato drowned in espresso.",
+        "price": "€4.50"
+      }
+    }
+  },
+  "location": {
+    "title1": "Visit",
+    "title2": "Us",
+    "address": "Vore Muçaj Nr. pasurie 20/92\nTirane\nAlbania",
+    "getDirections": "Get Directions",
+    "openingHours": "Opening Hours",
+    "days": {
+      "mondayFriday": "Monday - Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "hours": {
+      "weekday": "7:00 - 18:00",
+      "saturday": "8:00 - 19:00",
+      "sunday": "8:00 - 17:00"
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Wholesale inquiries, press, or just to say hello.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your passion for coffee...",
+      "send": "Send Message"
+    },
+    "directContact": "Direct Contact",
+    "phone": "Phone"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}

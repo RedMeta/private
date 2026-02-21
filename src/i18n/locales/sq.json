@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "title1": "Sensity",
+    "title2": "Espresso",
+    "title3": "Lovers",
+    "subtitle": "Rrugë të vjetra. Mëngjese të hershme. Një espresso e shkurtër, e fortë, në banak. Ai shpirt italian mbetet me ne—i rilindur te Sensity me qartësi moderne, thellësi të butë dhe një shije që zgjat.",
+    "cta": "Eksploro Menunë Tonë"
+  },
+  "nav": {
+    "philosophy": "Filozofia",
+    "menu": "Menu",
+    "location": "Vendndodhja",
+    "contact": "Kontakti"
+  },
+  "philosophy": {
+    "title1": "Filozofia\n",
+    "title2": "Ynë",
+    "text1": "Te Sensity, ne besojmë se espresso është shprehja më e pastër e kafesë. Nuk është vetëm për kremën e pasur ose aromën intensive—është për respektimin e traditës duke përqafuar inovacionin.",
+    "text2": "Çdo filxhan tregon një histori: nga lartësitë e puthura nga dielli ku rriten farat tona, deri në momentin e saktë kur uji takon kafenë në pikërisht 9 bar presioni.",
+    "text3": "Ne jemi dashamirës të ritualit, pushimit, gllënjkës së përsosur që bën gjithçka të drejtë."
+  },
+  "menu": {
+    "title1": "Menuja",
+    "title2": "Jonë",
+    "viewDetails": "Shiko Detajet",
+    "items": {
+      "classicEspresso": {
+        "name": "Espresso Klasike",
+        "description": "E guximshme dhe intensive, përzierja jonë karakteristike.",
+        "price": "€2.50"
+      },
+      "cappuccino": {
+        "name": "Cappuccino",
+        "description": "Shkumë kadifeje takon espresso të pasur.",
+        "price": "€3.50"
+      },
+      "macchiato": {
+        "name": "Macchiato",
+        "description": "Espresso e puthur me qumësht të avulluar.",
+        "price": "€3.00"
+      },
+      "affogato": {
+        "name": "Affogato",
+        "description": "Akullore me vanilje e mbytur në espresso.",
+        "price": "€4.50"
+      }
+    }
+  },
+  "location": {
+    "title1": "Na",
+    "title2": "Vizitoni",
+    "businessName": "Sensity Espresso Lovers",
+    "address": "Vore Muçaj Nr. pasurie 20/92\nTirane\nShqipëri",
+    "getDirections": "Merr Udhëzimet",
+    "openingHours": "Orari i Hapjes",
+    "days": {
+      "mondayFriday": "E Hënë - E Premte",
+      "saturday": "E Shtunë",
+      "sunday": "E Diel"
+    },
+    "hours": {
+      "weekday": "7:00 - 18:00",
+      "saturday": "8:00 - 19:00",
+      "sunday": "8:00 - 17:00"
+    }
+  },
+  "contact": {
+    "title": "Na Kontaktoni",
+    "subtitle": "Pyetje për shumicë, shtyp, ose vetëm për të thënë përshëndetje.",
+    "form": {
+      "name": "Emri",
+      "namePlaceholder": "Emri juaj",
+      "email": "Email",
+      "emailPlaceholder": "juaj@email.com",
+      "message": "Mesazhi",
+      "messagePlaceholder": "Na tregoni për pasionin tuaj për kafenë...",
+      "send": "Dërgo Mesazhin"
+    },
+    "directContact": "Kontakt i Drejtpërdrejtë",
+    "phone": "Telefoni"
+  },
+  "footer": {
+    "rights": "Të gjitha të drejtat e rezervuara"
+  }
+}

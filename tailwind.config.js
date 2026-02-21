@@ -17,8 +17,8 @@ module.exports = {
         'warm-white': '#FAFAF8',
       },
       fontFamily: {
-        sans: ['Manrope', 'system-ui', 'sans-serif'],
-        serif: ['Outfit', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
       },
       letterSpacing: {
         'tighter-editorial': '-0.04em',

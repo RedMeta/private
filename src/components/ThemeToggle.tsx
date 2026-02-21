@@ -8,7 +8,7 @@ export function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
   return (
     <button
       onClick={onToggle}
-      className={`relative p-2 rounded-full transition-colors duration-300 ${theme === 'dark' ? 'bg-charcoal text-sensity-red hover:bg-white/10' : 'bg-white text-sensity-red hover:bg-black/5 shadow-sm'}`}
+      className={`relative p-2 rounded-full transition-colors duration-300 ${theme === 'dark' ? 'bg-charcoal text-sensity-green hover:bg-white/10' : 'bg-white text-sensity-red hover:bg-black/5 shadow-sm'}`}
       aria-label="Toggle theme">
 
       <div className="relative w-6 h-6">

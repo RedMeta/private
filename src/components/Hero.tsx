@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import CoffeeBackground from './CoffeeBackground';
 
 interface HeroProps {
   theme: 'light' | 'dark';
-  beanImage?: 'svg' | 'photo';
 }
-export function Hero({ theme, beanImage = 'svg' }: HeroProps) {
+export function Hero({ theme }: HeroProps) {
+  const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== 'undefined' ? window.innerWidth < 768 : false
   );
@@ -76,24 +77,24 @@ export function Hero({ theme, beanImage = 'svg' }: HeroProps) {
               variants={itemVariants}
               className="text-7xl md:text-8xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase text-sensity-green drop-shadow-2xl">
 
-              Sensity
+              {t('hero.title1')}
             </motion.h1>
             <motion.h1
               variants={itemVariants}
-              className={`text-7xl md:text-8xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase drop-shadow-2xl ${theme === 'dark' ? 'text-warm-white' : 'text-charcoal'}`}
-            // style={{
-            //   WebkitTextStroke:
-            //     theme === 'dark' ? '3px #FAFAF8' : '3px #1A1A1A'
-            // }}
+              className={`text-7xl md:text-8xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase drop-shadow-2xl ${theme === 'dark' ? 'text-transparent' : 'text-charcoal'}`}
+              style={{
+                WebkitTextStroke:
+                  theme === 'dark' ? '3px #FAFAF8' : '',
+              }}
             >
 
-              Espresso
+              {t('hero.title2')}
             </motion.h1>
             <motion.h1
               variants={itemVariants}
               className="text-7xl md:text-8xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase text-sensity-red drop-shadow-2xl">
 
-              Lovers
+              {t('hero.title3')}
             </motion.h1>
 
             <motion.div
@@ -103,10 +104,7 @@ export function Hero({ theme, beanImage = 'svg' }: HeroProps) {
               <p
                 className={`text-lg md:text-xl font-semibold leading-relaxed mb-8 ${theme === 'dark' ? 'text-warm-white drop-shadow-sm' : 'text-near-black bg-cream/90 px-3 py-2 rounded-sm'}`}>
 
-                Rrugë të vjetra. Mëngjese të hershme. Një espresso e shkurtër,
-                e fortë, në banak. Ai shpirt italian mbetet me ne—i rilindur
-                te Sensity me qartësi moderne, thellësi të butë dhe një shije
-                që zgjat.
+                {t('hero.subtitle')}
               </p>
 
               <button
@@ -117,7 +115,7 @@ export function Hero({ theme, beanImage = 'svg' }: HeroProps) {
                 }
                 className={`group flex items-center space-x-4 px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300 ${theme === 'dark' ? 'bg-sensity-green text-white border-2 border-sensity-green hover:bg-transparent hover:text-sensity-green' : 'bg-sensity-red text-white border-2 border-sensity-red hover:bg-transparent hover:text-sensity-red'}`}>
 
-                <span>Explore Our Menu</span>
+                <span>{t('hero.cta')}</span>
                 <ArrowDown className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
               </button>
             </motion.div>

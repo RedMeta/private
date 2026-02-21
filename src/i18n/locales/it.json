@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "title1": "Sensity",
+    "title2": "Espresso",
+    "title3": "Lovers",
+    "subtitle": "Strade antiche, prima mattina, un espresso corto e forte al bancone. Quello spirito italiano rimane con noi—rinato a Sensity con chiarezza moderna, profondità morbida e un gusto che persiste.",
+    "cta": "Scopri Il Nostro Menu"
+  },
+  "nav": {
+    "philosophy": "Filosofia",
+    "menu": "Menu",
+    "location": "Dove Siamo",
+    "contact": "Contatti"
+  },
+  "philosophy": {
+    "title1": "La Nostra\n",
+    "title2": "Filosofia",
+    "text1": "A Sensity, crediamo che l'espresso sia l'espressione più pura del caffè. Non si tratta solo della ricca crema o dell'aroma intenso—si tratta di rispettare la tradizione abbracciando l'innovazione.",
+    "text2": "Ogni tazza racconta una storia: dalle alture baciate dal sole dove crescono i nostri chicchi, al momento preciso in cui l'acqua incontra il caffè a esattamente 9 bar di pressione.",
+    "text3": "Siamo amanti del rituale, della pausa, del sorso perfetto che rende tutto giusto."
+  },
+  "menu": {
+    "title1": "Il Nostro",
+    "title2": "Menu",
+    "viewDetails": "Vedi Dettagli",
+    "items": {
+      "classicEspresso": {
+        "name": "Espresso Classico",
+        "description": "Audace e intenso, la nostra miscela signature.",
+        "price": "€2.50"
+      },
+      "cappuccino": {
+        "name": "Cappuccino",
+        "description": "Schiuma vellutata incontra ricco espresso.",
+        "price": "€3.50"
+      },
+      "macchiato": {
+        "name": "Macchiato",
+        "description": "Espresso baciato dal latte montato.",
+        "price": "€3.00"
+      },
+      "affogato": {
+        "name": "Affogato",
+        "description": "Gelato alla vaniglia affogato nell'espresso.",
+        "price": "€4.50"
+      }
+    }
+  },
+  "location": {
+    "title1": "Vieni a",
+    "title2": "Trovarci",
+    "businessName": "Sensity Espresso Lovers",
+    "address": "Vore Muçaj Nr. pasurie 20/92\nTirane\nAlbania",
+    "getDirections": "Ottieni Indicazioni",
+    "openingHours": "Orari di Apertura",
+    "days": {
+      "mondayFriday": "Lunedì - Venerdì",
+      "saturday": "Sabato",
+      "sunday": "Domenica"
+    },
+    "hours": {
+      "weekday": "7:00 - 18:00",
+      "saturday": "8:00 - 19:00",
+      "sunday": "8:00 - 17:00"
+    }
+  },
+  "contact": {
+    "title": "Contattaci",
+    "subtitle": "Richieste all'ingrosso, stampa o semplicemente per salutare.",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "Il tuo nome",
+      "email": "Email",
+      "emailPlaceholder": "tua@email.com",
+      "message": "Messaggio",
+      "messagePlaceholder": "Raccontaci della tua passione per il caffè...",
+      "send": "Invia Messaggio"
+    },
+    "directContact": "Contatto Diretto",
+    "phone": "Telefono"
+  },
+  "footer": {
+    "rights": "Tutti i diritti riservati"
+  }
+}

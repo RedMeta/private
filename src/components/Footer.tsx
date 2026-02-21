@@ -1,8 +1,11 @@
 import { Instagram, Facebook } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
 interface FooterProps {
   theme: 'light' | 'dark';
 }
 export function Footer({ theme }: FooterProps) {
+  const { t } = useTranslation();
   return (
     <footer
       className={`py-12 border-t transition-colors duration-500 ${theme === 'dark' ? 'bg-black text-warm-white/40 border-white/5' : 'bg-near-black text-warm-white/60 border-black/5'}`}>
@@ -20,8 +23,7 @@ export function Footer({ theme }: FooterProps) {
         </div>
 
         <div className="text-sm font-light tracking-wide">
-          &copy; {new Date().getFullYear()} Sensity Espresso Lovers. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} Sensity Espresso Lovers. {t('footer.rights')}
         </div>
 
         <div className="flex space-x-6">

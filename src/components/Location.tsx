@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
 import { MapPin, Clock } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
 interface LocationProps {
   theme: 'light' | 'dark';
 }
 export function Location({ theme }: LocationProps) {
+  const { t } = useTranslation();
   return (
     <section
       id="location"
@@ -29,9 +32,9 @@ export function Location({ theme }: LocationProps) {
             }}>
 
             <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tight uppercase mb-12">
-              <span className="text-sensity-red">Visit</span>
+              <span className="text-sensity-red">{t('location.title1')}</span>
               <br />
-              Us
+              {t('location.title2')}
             </h2>
 
             <div className="flex items-start space-x-4 mb-8">
@@ -40,16 +43,17 @@ export function Location({ theme }: LocationProps) {
 
               <div>
                 <h3 className="text-2xl font-bold mb-2 font-serif">
-                  Sensity Espresso Lovers
+                  {t('location.businessName')}
                 </h3>
                 <p
                   className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
 
-                  Vore Muçaj Nr. pasurie 20/92
-                  <br />
-                  Tirane
-                  <br />
-                  Albania
+                  {t('location.address').split('\n').map((line, i) => (
+                    <span key={i}>
+                      {line}
+                      {i < 2 && <br />}
+                    </span>
+                  ))}
                 </p>
                 <a
                   href="https://maps.google.com/?q=Vore+Muçaj+20/92+Tirane+Albania"
@@ -57,7 +61,7 @@ export function Location({ theme }: LocationProps) {
                   rel="noopener noreferrer"
                   className={`inline-block mt-4 font-bold uppercase tracking-widest text-sm border-b pb-1 transition-colors duration-300 ${theme === 'dark' ? 'text-sensity-green border-sensity-green hover:text-white hover:border-white' : 'text-sensity-red border-sensity-red hover:text-black hover:border-black'}`}>
 
-                  Get Directions
+                  {t('location.getDirections')}
                 </a>
               </div>
             </div>
@@ -90,7 +94,7 @@ export function Location({ theme }: LocationProps) {
                   className={`w-6 h-6 ${theme === 'dark' ? 'text-sensity-red' : 'text-sensity-green'}`} />
 
                 <h3 className="text-xl font-bold uppercase tracking-widest">
-                  Opening Hours
+                  {t('location.openingHours')}
                 </h3>
               </div>
 
@@ -98,29 +102,29 @@ export function Location({ theme }: LocationProps) {
                 <div
                   className={`flex justify-between items-center border-b pb-4 ${theme === 'dark' ? 'border-white/10' : 'border-black/10'}`}>
 
-                  <span className="font-medium">Monday - Friday</span>
+                  <span className="font-medium">{t('location.days.mondayFriday')}</span>
                   <span
                     className={`font-light ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
 
-                    7:00 AM — 6:00 PM
+                    {t('location.hours.weekday')}
                   </span>
                 </div>
                 <div
                   className={`flex justify-between items-center border-b pb-4 ${theme === 'dark' ? 'border-white/10' : 'border-black/10'}`}>
 
-                  <span className="font-medium">Saturday</span>
+                  <span className="font-medium">{t('location.days.saturday')}</span>
                   <span
                     className={`font-light ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
 
-                    8:00 AM — 7:00 PM
+                    {t('location.hours.saturday')}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium">Sunday</span>
+                  <span className="font-medium">{t('location.days.sunday')}</span>
                   <span
                     className={`font-light ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
 
-                    8:00 AM — 5:00 PM
+                    {t('location.hours.sunday')}
                   </span>
                 </div>
               </div>

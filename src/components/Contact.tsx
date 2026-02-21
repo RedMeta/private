@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
 interface ContactProps {
   theme: 'light' | 'dark';
 }
 export function Contact({ theme }: ContactProps) {
+  const { t } = useTranslation();
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -40,12 +43,12 @@ export function Contact({ theme }: ContactProps) {
           className="text-center mb-16">
 
           <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tight uppercase mb-6">
-            Get In Touch
+            {t('contact.title')}
           </h2>
           <p
             className={`text-xl font-light ${theme === 'dark' ? 'text-warm-white/60' : 'text-near-black/60'}`}>
 
-            Wholesale inquiries, press, or just to say hello.
+            {t('contact.subtitle')}
           </p>
         </motion.div>
 
@@ -69,7 +72,7 @@ export function Contact({ theme }: ContactProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="group">
               <label htmlFor="name" className={labelClasses}>
-                Name
+                {t('contact.form.name')}
               </label>
               <input
                 type="text"
@@ -82,13 +85,13 @@ export function Contact({ theme }: ContactProps) {
                   })
                 }
                 className={inputClasses}
-                placeholder="Marco Rossi"
+                placeholder={t('contact.form.namePlaceholder')}
                 required />
 
             </div>
             <div className="group">
               <label htmlFor="email" className={labelClasses}>
-                Email
+                {t('contact.form.email')}
               </label>
               <input
                 type="email"
@@ -101,7 +104,7 @@ export function Contact({ theme }: ContactProps) {
                   })
                 }
                 className={inputClasses}
-                placeholder="your@email.com"
+                placeholder={t('contact.form.emailPlaceholder')}
                 required />
 
             </div>
@@ -109,7 +112,7 @@ export function Contact({ theme }: ContactProps) {
 
           <div className="group">
             <label htmlFor="message" className={labelClasses}>
-              Message
+              {t('contact.form.message')}
             </label>
             <textarea
               id="message"
@@ -122,7 +125,7 @@ export function Contact({ theme }: ContactProps) {
                 })
               }
               className={`${inputClasses} resize-none`}
-              placeholder="Tell us about your passion for coffee..."
+              placeholder={t('contact.form.messagePlaceholder')}
               required />
 
           </div>
@@ -132,7 +135,7 @@ export function Contact({ theme }: ContactProps) {
               type="submit"
               className={`group flex items-center space-x-4 px-12 py-5 uppercase tracking-widest text-sm font-bold transition-all duration-300 ${theme === 'dark' ? 'bg-sensity-red text-white hover:bg-white hover:text-sensity-red' : 'bg-sensity-red text-white hover:bg-near-black hover:text-white'}`}>
 
-              <span>Send Message</span>
+              <span>{t('contact.form.send')}</span>
               <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
             </button>
           </div>
@@ -160,13 +163,13 @@ export function Contact({ theme }: ContactProps) {
           }}>
 
           <h3 className="text-2xl md:text-3xl font-serif font-black uppercase mb-8">
-            Direct Contact
+            {t('contact.directContact')}
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <p className={`text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-sensity-green' : 'text-sensity-red'}`}>
-                Email
+                {t('contact.form.email')}
               </p>
               <a
                 href="mailto:sensityespres80@gmail.com"
@@ -178,7 +181,7 @@ export function Contact({ theme }: ContactProps) {
 
             <div>
               <p className={`text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-sensity-green' : 'text-sensity-red'}`}>
-                Phone
+                {t('contact.phone')}
               </p>
               <div className="space-y-1">
                 <a

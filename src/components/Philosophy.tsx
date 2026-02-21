@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+
 interface PhilosophyProps {
   theme: 'light' | 'dark';
 }
 export function Philosophy({ theme }: PhilosophyProps) {
+  const { t } = useTranslation();
   return (
     <section
       id="philosophy"
@@ -45,9 +48,10 @@ export function Philosophy({ theme }: PhilosophyProps) {
             className="h-full">
             <div className='sack-back'>
               <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tight uppercase leading-none">
-                Pasioni
-                <br />
-                <span className="text-sensity-green">Ynë</span>
+                {t('philosophy.title1')}
+                <span className="text-sensity-green">
+                  {t('philosophy.title2')}
+                </span>
               </h2>
             </div>
           </motion.div>
@@ -71,24 +75,17 @@ export function Philosophy({ theme }: PhilosophyProps) {
             className="space-y-8">
 
             <p className="text-xl md:text-2xl font-light leading-relaxed">
-              Te Sensity, ne besojmë se espresso është shprehja më e pastër e
-              kafesë. Është një formë arti që kërkon precizion, respekt dhe,
-              mbi të gjitha, pasion.
+              {t('philosophy.text1')}
             </p>
             <p
               className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
 
-              Udhëtimi ynë nisi në piazzat plot jetë të Italisë, ku kafeja nuk
-              është thjesht një pije, por një moment lidhjeje. Ne e kemi sjellë
-              këtë frymë këtu, duke e rafinuar me teknika moderne dhe duke
-              nderuar traditat e përjetshme të artit të baristës.
+              {t('philosophy.text2')}
             </p>
             <p
               className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
 
-              Çdo kafe që përgatisim është dëshmi e fiksimit tonë me cilësinë.
-              Nga pjekja te stampimi, nga presioni te derdhja—ne ndjekim kremin
-              perfekt, balancën perfekte dhe momentin perfekt.
+              {t('philosophy.text3')}
             </p>
           </motion.div>
         </div>

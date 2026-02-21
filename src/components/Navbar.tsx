@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { ThemeToggle } from './ThemeToggle';
 import { BeanImageToggle } from './BeanImageToggle';
+import { LanguageSelector } from './LanguageSelector';
+
 interface NavbarProps {
   theme: 'light' | 'dark';
   onToggleTheme: () => void;
   beanImage?: 'svg' | 'photo';
   onToggleBeanImage?: () => void;
+  currentLanguage: string;
+  onLanguageChange: (lang: string) => void;
 }
-export function Navbar({ theme, onToggleTheme, beanImage = 'svg', onToggleBeanImage = () => { } }: NavbarProps) {
+
+export function Navbar({ theme, onToggleTheme, beanImage = 'svg', onToggleBeanImage = () => { }, currentLanguage, onLanguageChange }: NavbarProps) {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
@@ -27,19 +34,19 @@ export function Navbar({ theme, onToggleTheme, beanImage = 'svg', onToggleBeanIm
   };
   const navLinks = [
     {
-      name: 'Philosophy',
+      name: t('nav.philosophy'),
       id: 'philosophy'
     },
     {
-      name: 'Menu',
+      name: t('nav.menu'),
       id: 'menu'
     },
     {
-      name: 'Location',
+      name: t('nav.location'),
       id: 'location'
     },
     {
-      name: 'Contact',
+      name: t('nav.contact'),
       id: 'contact'
     }];
 
@@ -108,6 +115,7 @@ export function Navbar({ theme, onToggleTheme, beanImage = 'svg', onToggleBeanIm
 
           <div className="flex items-center gap-2">
             <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+            <LanguageSelector currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} theme={theme} />
             {/* <BeanImageToggle beanImage={beanImage} onToggle={onToggleBeanImage} /> */}
           </div>
         </div>
@@ -116,6 +124,7 @@ export function Navbar({ theme, onToggleTheme, beanImage = 'svg', onToggleBeanIm
         <div className="flex items-center gap-4 md:hidden z-50">
           {/* <BeanImageToggle beanImage={beanImage} onToggle={onToggleBeanImage} /> */}
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+          <LanguageSelector currentLanguage={currentLanguage} onLanguageChange={onLanguageChange} theme={theme} />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="relative">

@@ -190,7 +190,7 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '', beanImage 
 
   return (
     <div className={`coffee-shell ${className}`.trim()}>
-      <div className={`coffee-back ${beanImage === 'photo' ? 'photo-mode' : ''}`} ref={containerRef} aria-hidden="true" />
+      <div className={`coffee-back blur-[1px] ${beanImage === 'photo' ? 'photo-mode' : ''}`} ref={containerRef} aria-hidden="true" />
       <div className="coffee-content">
         {children}
       </div>
