@@ -2,29 +2,43 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import CoffeeBackground from './CoffeeBackground';
+
 interface HeroProps {
   theme: 'light' | 'dark';
 }
 export function Hero({ theme }: HeroProps) {
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== 'undefined' ? window.matchMedia('(max-width: 767px)').matches : false
-  );
+  const [screenSize, setScreenSize] = useState(() => {
+    if (typeof window === 'undefined') return { isMobile: false, isSmallViewport: false, isTall: false };
+    return getScreenSize();
+  });
+
+  const getScreenSize = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const isMobile = width < 768;
+    const isSmallViewport = width < 480;
+    const isTall = height > width * 1.5;
+
+    return { isMobile, isSmallViewport, isTall };
+  };
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 767px)');
-    const handleChange = (event: MediaQueryListEvent) => {
-      setIsMobile(event.matches);
+    const handleResize = () => {
+      setScreenSize(getScreenSize());
     };
 
-    setIsMobile(mediaQuery.matches);
-    mediaQuery.addEventListener('change', handleChange);
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
 
     return () => {
-      mediaQuery.removeEventListener('change', handleChange);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
     };
   }, []);
 
-  const beanCount = isMobile ? Math.ceil(75 / 2) : 75;
+  const beanCount = screenSize.isMobile ? 7 : 75;
+  const topPadding = screenSize.isTall ? 'pt-12' : 'pt-16 md:pt-20';
+  const bottomSpacing = screenSize.isSmallViewport ? 'pb-2' : 'pb-4 md:pb-12';
 
   const containerVariants = {
     hidden: {
@@ -55,14 +69,14 @@ export function Hero({ theme }: HeroProps) {
 
   return (
     <section
-      className={`relative min-h-screen w-full flex flex-col justify-center overflow-hidden transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black text-warm-white' : 'bg-cream text-near-black'}`}>
+      className={`relative min-h-[100svh] md:min-h-screen w-full flex flex-col justify-center overflow-hidden transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black text-warm-white' : 'bg-cream text-near-black'}`}>
 
       {/* Noise Texture Overlay */}
       <div
         className={`absolute inset-0 bg-noise pointer-events-none mix-blend-overlay ${theme === 'dark' ? 'opacity-20' : 'opacity-40'}`} />
 
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full z-10 pt-20">
+      <div className={`max-w-7xl mx-auto px-6 md:px-12 w-full z-10 ${topPadding}`}>
         <CoffeeBackground beanCount={beanCount}>
           <motion.div
             variants={containerVariants}
@@ -96,7 +110,7 @@ export function Hero({ theme }: HeroProps) {
 
             <motion.div
               variants={itemVariants}
-              className="mt-16 md:mt-24 max-w-md pb-4 md:pb-12">
+              className={`mt-16 md:mt-24 max-w-md ${bottomSpacing}`}>
 
               <p
                 className={`text-lg md:text-xl font-semibold leading-relaxed mb-8 ${theme === 'dark' ? 'text-warm-white drop-shadow-sm' : 'text-near-black bg-cream/90 px-3 py-2 rounded-sm'}`}>
