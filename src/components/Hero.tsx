@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import CoffeeBackground from './CoffeeBackground';
@@ -6,6 +7,25 @@ interface HeroProps {
   theme: 'light' | 'dark';
 }
 export function Hero({ theme }: HeroProps) {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
+
+  const beanCount = isMobile ? 20 : 50;
 
   const containerVariants = {
     hidden: {
@@ -44,7 +64,7 @@ export function Hero({ theme }: HeroProps) {
 
 
       <div className={`max-w-7xl mx-auto px-6 md:px-12 w-full z-10 pt-20 md:pt-30`}>
-        <CoffeeBackground beanCount={50}>
+        <CoffeeBackground beanCount={beanCount}>
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -53,13 +73,13 @@ export function Hero({ theme }: HeroProps) {
 
             <motion.h1
               variants={itemVariants}
-              className="text-7xl md:text-9xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase text-sensity-green drop-shadow-2xl">
+              className="text-7xl md:text-8xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase text-sensity-green drop-shadow-2xl">
 
               Sensity
             </motion.h1>
             <motion.h1
               variants={itemVariants}
-              className={`text-7xl md:text-9xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase drop-shadow-2xl ${theme === 'dark' ? 'text-warm-white' : 'text-charcoal'}`}
+              className={`text-7xl md:text-8xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase drop-shadow-2xl ${theme === 'dark' ? 'text-warm-white' : 'text-charcoal'}`}
             // style={{
             //   WebkitTextStroke:
             //     theme === 'dark' ? '3px #FAFAF8' : '3px #1A1A1A'
@@ -70,7 +90,7 @@ export function Hero({ theme }: HeroProps) {
             </motion.h1>
             <motion.h1
               variants={itemVariants}
-              className="text-7xl md:text-9xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase text-sensity-red drop-shadow-2xl">
+              className="text-7xl md:text-8xl font-serif font-extrabold tracking-tighter-editorial leading-[0.9] uppercase text-sensity-red drop-shadow-2xl">
 
               Lovers
             </motion.h1>
@@ -94,10 +114,10 @@ export function Hero({ theme }: HeroProps) {
                     behavior: 'smooth'
                   })
                 }
-                className={`group flex items-center space-x-4 border px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300 ${theme === 'dark' ? 'text-sensity-green border-sensity-green hover:bg-sensity-green hover:text-white' : 'text-sensity-red border-sensity-red hover:bg-sensity-red hover:text-white'}`}>
+                className={`group flex items-center space-x-4 px-8 py-4 uppercase tracking-widest text-sm font-bold transition-all duration-300 ${theme === 'dark' ? 'bg-sensity-green text-white border-2 border-sensity-green hover:bg-transparent hover:text-sensity-green' : 'bg-sensity-red text-white border-2 border-sensity-red hover:bg-transparent hover:text-sensity-red'}`}>
 
                 <span>Explore Our Menu</span>
-                <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
+                <ArrowDown className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
               </button>
             </motion.div>
           </motion.div>

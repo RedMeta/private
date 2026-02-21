@@ -168,7 +168,9 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '' }: CoffeeBa
   return (
     <div className={`coffee-shell ${className}`.trim()}>
       <div className="coffee-back" ref={containerRef} aria-hidden="true" />
-      {children}
+      <div className="coffee-content">
+        {children}
+      </div>
     </div>
   );
 };
