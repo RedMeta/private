@@ -45,23 +45,26 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '', beanImage 
 
       bean.classList.add('photo-mode');
 
-      // Add photo-mode class if using photo, otherwise add color classes
-      // if (beanImage === 'photo') {
-      // bean.classList.add('photo-mode');
-      // } else {
-      // const colors = ['red', 'green', 'white'] as const;
-      // randomColor = colors[Math.floor(Math.random() * colors.length)];
-      // bean.classList.add(`bean-${randomColor}`);
-      // }
-
       const size = 34 + Math.random() * 28;
       bean.style.setProperty('--bean-size', `${size}px`);
       bean.style.willChange = 'transform';
 
-      // Set background image based on beanImage prop
-      // const bgImage = beanImage === 'photo' ? "url('/coffee-bean-photo.png')" : "url('/coffee-bean-roast.svg')";
-      const bgImage = "url('/coffee-bean-photo.png')";
+      // Randomly select one of 6 different bean images
+      const beanImages = [
+        '/bean-1.png',
+        '/bean-2.png',
+        '/bean-3.png',
+        '/bean-4.png',
+        '/bean-5.png',
+        '/bean-6.png'
+      ];
+      const randomBean = beanImages[Math.floor(Math.random() * beanImages.length)];
+      const bgImage = `url('${randomBean}')`;
       bean.style.backgroundImage = bgImage;
+      bean.style.backgroundSize = '100% 100%';
+      bean.style.backgroundPosition = 'center';
+      bean.style.backgroundRepeat = 'no-repeat';
+      bean.style.borderRadius = '40%'; // Make element look bean-like
 
       const boundsWidth = container.clientWidth;
       const boundsHeight = container.clientHeight;
@@ -83,7 +86,7 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '', beanImage 
         rotationSpeed,
         size,
         radius: size / 2,
-        color: beanImage === 'photo' ? 'white' : randomColor,
+        color: 'white',
       };
 
       bean.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
