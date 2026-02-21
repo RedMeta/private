@@ -17,10 +17,9 @@ type CoffeeBackgroundProps = {
   children: ReactElement;
   beanCount?: number;
   className?: string;
-  beanImage?: 'svg' | 'photo';
 };
 
-const CoffeeBackground = ({ children, beanCount = 30, className = '', beanImage = 'svg' }: CoffeeBackgroundProps) => {
+const CoffeeBackground = ({ children, beanCount = 30, className = '' }: CoffeeBackgroundProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -186,11 +185,11 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '', beanImage 
       cancelAnimationFrame(animationFrameId);
       clearBeans();
     };
-  }, [beanCount, beanImage]);
+  }, [beanCount]);
 
   return (
     <div className={`coffee-shell ${className}`.trim()}>
-      <div className={`coffee-back blur-[1px] ${beanImage === 'photo' ? 'photo-mode' : ''}`} ref={containerRef} aria-hidden="true" />
+      <div className={`coffee-back blur-[1px] photo-mode'}`} ref={containerRef} aria-hidden="true" />
       <div className="coffee-content">
         {children}
       </div>

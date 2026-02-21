@@ -66,7 +66,7 @@ export function Hero({ theme }: HeroProps) {
 
 
       <div className={`max-w-7xl mx-auto px-6 md:px-12 w-full z-10 pt-20 md:pt-30`}>
-        <CoffeeBackground beanCount={beanCount} beanImage={beanImage}>
+        <CoffeeBackground beanCount={beanCount}>
           <motion.div
             variants={containerVariants}
             initial="hidden"
