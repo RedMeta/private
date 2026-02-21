@@ -12,8 +12,8 @@ module.exports = {
         'sensity-red': '#E31E24',
         'sensity-green': '#00A651',
         'cream': '#FFF8F0',
-        'near-black': '#0A0A0A',
-        'charcoal': '#1A1A1A',
+        'near-black': '#2E221A',
+        'charcoal': '#433228',
         'warm-white': '#FAFAF8',
       },
       fontFamily: {

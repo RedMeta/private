@@ -75,7 +75,7 @@ export function Hero({ theme }: HeroProps) {
 
             <motion.div
               variants={itemVariants}
-              className="mt-16 md:mt-24 max-w-md">
+              className="mt-16 md:mt-24 max-w-md pb-12">
 
               <p
                 className={`text-lg md:text-xl font-semibold leading-relaxed mb-8 ${theme === 'dark' ? 'text-warm-white drop-shadow-sm' : 'text-near-black bg-cream/90 px-3 py-2 rounded-sm'}`}>
