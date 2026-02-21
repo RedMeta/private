@@ -1,4 +1,4 @@
-import { Instagram, Twitter, Facebook } from 'lucide-react';
+import { Instagram, Facebook } from 'lucide-react';
 interface FooterProps {
   theme: 'light' | 'dark';
 }
@@ -26,19 +26,17 @@ export function Footer({ theme }: FooterProps) {
 
         <div className="flex space-x-6">
           <a
-            href="#"
+            href="https://www.instagram.com/sensityespressolovers/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-sensity-red transition-colors duration-300">
 
             <Instagram size={20} />
           </a>
           <a
-            href="#"
-            className="hover:text-sensity-red transition-colors duration-300">
-
-            <Twitter size={20} />
-          </a>
-          <a
-            href="#"
+            href="https://www.facebook.com/sensityespresso"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:text-sensity-red transition-colors duration-300">
 
             <Facebook size={20} />

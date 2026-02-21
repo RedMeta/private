@@ -29,7 +29,7 @@ export function Location({ theme }: LocationProps) {
             }}>
 
             <h2 className="text-5xl md:text-7xl font-serif font-black tracking-tight uppercase mb-12">
-              Visit
+              <span className="text-sensity-red">Visit</span>
               <br />
               Us
             </h2>
@@ -40,19 +40,21 @@ export function Location({ theme }: LocationProps) {
 
               <div>
                 <h3 className="text-2xl font-bold mb-2 font-serif">
-                  Sensity Espresso Bar
+                  Sensity Espresso Lovers
                 </h3>
                 <p
                   className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
 
-                  1240 Industrial Avenue
+                  Vore Muçaj Nr. pasurie 20/92
                   <br />
-                  Arts District
+                  Tirane
                   <br />
-                  Los Angeles, CA 90021
+                  Albania
                 </p>
                 <a
-                  href="#"
+                  href="https://maps.google.com/?q=Vore+Muçaj+20/92+Tirane+Albania"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`inline-block mt-4 font-bold uppercase tracking-widest text-sm border-b pb-1 transition-colors duration-300 ${theme === 'dark' ? 'text-sensity-green border-sensity-green hover:text-white hover:border-white' : 'text-sensity-red border-sensity-red hover:text-black hover:border-black'}`}>
 
                   Get Directions

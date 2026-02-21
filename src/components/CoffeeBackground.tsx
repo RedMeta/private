@@ -10,19 +10,22 @@ type BeanState = {
   rotationSpeed: number;
   size: number;
   radius: number;
+  color: 'red' | 'green' | 'white';
 };
 
 type CoffeeBackgroundProps = {
   children: ReactElement;
   beanCount?: number;
   className?: string;
+  beanImage?: 'svg' | 'photo';
 };
 
-const CoffeeBackground = ({ children, beanCount = 30, className = '' }: CoffeeBackgroundProps) => {
+const CoffeeBackground = ({ children, beanCount = 30, className = '', beanImage = 'svg' }: CoffeeBackgroundProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;
+    let randomColor = 'transparent';
 
     if (!container) return;
 
@@ -40,9 +43,22 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '' }: CoffeeBa
       const bean = document.createElement('div');
       bean.classList.add('bean');
 
+      // Add photo-mode class if using photo, otherwise add color classes
+      if (beanImage === 'photo') {
+        bean.classList.add('photo-mode');
+      } else {
+        const colors = ['red', 'green', 'white'] as const;
+        randomColor = colors[Math.floor(Math.random() * colors.length)];
+        bean.classList.add(`bean-${randomColor}`);
+      }
+
       const size = 34 + Math.random() * 28;
       bean.style.setProperty('--bean-size', `${size}px`);
       bean.style.willChange = 'transform';
+
+      // Set background image based on beanImage prop
+      const bgImage = beanImage === 'photo' ? "url('/coffee-bean-photo.png')" : "url('/coffee-bean-roast.svg')";
+      bean.style.backgroundImage = bgImage;
 
       const boundsWidth = container.clientWidth;
       const boundsHeight = container.clientHeight;
@@ -64,6 +80,7 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '' }: CoffeeBa
         rotationSpeed,
         size,
         radius: size / 2,
+        color: beanImage === 'photo' ? 'white' : randomColor,
       };
 
       bean.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
@@ -147,7 +164,7 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '' }: CoffeeBa
       }
 
       //let's not use them for now
-      // resolveCollisions();
+      resolveCollisions();
 
       for (const bean of beans) {
         bean.rotation += bean.rotationSpeed * delta;
@@ -163,11 +180,11 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '' }: CoffeeBa
       cancelAnimationFrame(animationFrameId);
       clearBeans();
     };
-  }, [beanCount]);
+  }, [beanCount, beanImage]);
 
   return (
     <div className={`coffee-shell ${className}`.trim()}>
-      <div className="coffee-back" ref={containerRef} aria-hidden="true" />
+      <div className={`coffee-back ${beanImage === 'photo' ? 'photo-mode' : ''}`} ref={containerRef} aria-hidden="true" />
       <div className="coffee-content">
         {children}
       </div>

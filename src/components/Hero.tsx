@@ -5,8 +5,9 @@ import CoffeeBackground from './CoffeeBackground';
 
 interface HeroProps {
   theme: 'light' | 'dark';
+  beanImage?: 'svg' | 'photo';
 }
-export function Hero({ theme }: HeroProps) {
+export function Hero({ theme, beanImage = 'svg' }: HeroProps) {
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== 'undefined' ? window.innerWidth < 768 : false
   );
@@ -64,7 +65,7 @@ export function Hero({ theme }: HeroProps) {
 
 
       <div className={`max-w-7xl mx-auto px-6 md:px-12 w-full z-10 pt-20 md:pt-30`}>
-        <CoffeeBackground beanCount={beanCount}>
+        <CoffeeBackground beanCount={beanCount} beanImage={beanImage}>
           <motion.div
             variants={containerVariants}
             initial="hidden"

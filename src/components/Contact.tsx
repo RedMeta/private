@@ -101,7 +101,7 @@ export function Contact({ theme }: ContactProps) {
                   })
                 }
                 className={inputClasses}
-                placeholder="marco@example.com"
+                placeholder="your@email.com"
                 required />
 
             </div>
@@ -137,6 +137,66 @@ export function Contact({ theme }: ContactProps) {
             </button>
           </div>
         </motion.form>
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 30
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0
+          }}
+          viewport={{
+            once: true
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.4
+          }}
+          className="mt-20 pt-20 border-t border-opacity-20"
+          style={{
+            borderColor: theme === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'
+          }}>
+
+          <h3 className="text-2xl md:text-3xl font-serif font-black uppercase mb-8">
+            Direct Contact
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <p className={`text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-sensity-green' : 'text-sensity-red'}`}>
+                Email
+              </p>
+              <a
+                href="mailto:sensityespres80@gmail.com"
+                className={`text-lg font-light transition-colors duration-300 ${theme === 'dark' ? 'text-warm-white hover:text-sensity-green' : 'text-near-black hover:text-sensity-red'
+                  }`}>
+                sensityespres80@gmail.com
+              </a>
+            </div>
+
+            <div>
+              <p className={`text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-sensity-green' : 'text-sensity-red'}`}>
+                Phone
+              </p>
+              <div className="space-y-1">
+                <a
+                  href="tel:+355695420190"
+                  className={`block text-lg font-light transition-colors duration-300 ${theme === 'dark' ? 'text-warm-white hover:text-sensity-green' : 'text-near-black hover:text-sensity-red'
+                    }`}>
+                  +355 69 542 0190
+                </a>
+                <a
+                  href="tel:+355683629893"
+                  className={`block text-lg font-light transition-colors duration-300 ${theme === 'dark' ? 'text-warm-white hover:text-sensity-green' : 'text-near-black hover:text-sensity-red'
+                    }`}>
+                  +355 68 362 9893
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>);
 

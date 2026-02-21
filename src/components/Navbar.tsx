@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import { BeanImageToggle } from './BeanImageToggle';
 interface NavbarProps {
   theme: 'light' | 'dark';
   onToggleTheme: () => void;
+  beanImage?: 'svg' | 'photo';
+  onToggleBeanImage?: () => void;
 }
-export function Navbar({ theme, onToggleTheme }: NavbarProps) {
+export function Navbar({ theme, onToggleTheme, beanImage = 'svg', onToggleBeanImage = () => { } }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
@@ -23,29 +26,29 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
     }
   };
   const navLinks = [
-  {
-    name: 'Philosophy',
-    id: 'philosophy'
-  },
-  {
-    name: 'Menu',
-    id: 'menu'
-  },
-  {
-    name: 'Location',
-    id: 'location'
-  },
-  {
-    name: 'Contact',
-    id: 'contact'
-  }];
+    {
+      name: 'Philosophy',
+      id: 'philosophy'
+    },
+    {
+      name: 'Menu',
+      id: 'menu'
+    },
+    {
+      name: 'Location',
+      id: 'location'
+    },
+    {
+      name: 'Contact',
+      id: 'contact'
+    }];
 
   // Dynamic styles based on theme and scroll state
   const getNavBackground = () => {
     if (!isScrolled) return 'bg-transparent';
     return theme === 'dark' ?
-    'bg-near-black/90 backdrop-blur-md border-b border-white/5' :
-    'bg-cream/90 backdrop-blur-md border-b border-black/5';
+      'bg-near-black/90 backdrop-blur-md border-b border-white/5' :
+      'bg-cream/90 backdrop-blur-md border-b border-black/5';
   };
   const getTextColor = () => {
     if (isScrolled) {
@@ -71,10 +74,10 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         <button
           onClick={() =>
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          })
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            })
           }
           className="flex items-center gap-3 z-50 relative group">
 
@@ -91,10 +94,10 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
           {navLinks.map((link) =>
-          <button
-            key={link.name}
-            onClick={() => scrollToSection(link.id)}
-            className={`text-sm font-medium uppercase tracking-widest hover:text-sensity-red transition-colors duration-300 relative group ${theme === 'dark' ? 'text-warm-white' : 'text-near-black'}`}>
+            <button
+              key={link.name}
+              onClick={() => scrollToSection(link.id)}
+              className={`text-sm font-medium uppercase tracking-widest hover:text-sensity-red transition-colors duration-300 relative group ${theme === 'dark' ? 'text-warm-white' : 'text-near-black'}`}>
 
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-sensity-red transition-all duration-300 group-hover:w-full" />
@@ -103,11 +106,15 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
 
           <div className="pl-4 border-l border-current opacity-50 h-6" />
 
-          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+          <div className="flex items-center gap-2">
+            <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+            <BeanImageToggle beanImage={beanImage} onToggle={onToggleBeanImage} />
+          </div>
         </div>
 
         {/* Mobile Menu Toggle */}
         <div className="flex items-center gap-4 md:hidden z-50">
+          <BeanImageToggle beanImage={beanImage} onToggle={onToggleBeanImage} />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -132,10 +139,10 @@ export function Navbar({ theme, onToggleTheme }: NavbarProps) {
 
           <div className="flex flex-col space-y-8 text-center">
             {navLinks.map((link) =>
-            <button
-              key={link.name}
-              onClick={() => scrollToSection(link.id)}
-              className="text-4xl font-serif font-bold uppercase tracking-tight hover:text-sensity-red transition-colors">
+              <button
+                key={link.name}
+                onClick={() => scrollToSection(link.id)}
+                className="text-4xl font-serif font-bold uppercase tracking-tight hover:text-sensity-red transition-colors">
 
                 {link.name}
               </button>

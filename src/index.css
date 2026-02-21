@@ -41,6 +41,10 @@
   z-index: 0;
 }
 
+.coffee-back.photo-mode {
+  background-color: transparent;
+}
+
 .sack-back {
   position: relative;
   display: flex;
@@ -72,11 +76,13 @@
   position: absolute;
   width: var(--bean-size, 50px);
   height: var(--bean-size, 50px);
-  background-image: url('/coffee-bean-real.png');
+  background-image: url('/coffee-bean-roast.svg');
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   pointer-events: none;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
 }
 
 .coffee-content {
@@ -93,6 +99,28 @@
 }
 .text-stroke-red {
   -webkit-text-stroke: 1px #E31E24;
+}
+
+/* Coffee Bean Colors - SVG Mode */
+.bean-red {
+  filter: brightness(0.95) contrast(1.1);
+  transition: filter 0.3s ease;
+}
+
+.bean-green {
+  filter: hue-rotate(120deg) saturate(1.2) brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.bean-white {
+  filter: brightness(1.8) saturate(0) opacity(0.85);
+  transition: filter 0.3s ease;
+}
+
+/* Photo Mode - No filters, full opacity */
+.bean.photo-mode {
+  filter: none !important;
+  opacity: 1 !important;
 }
 .text-stroke-green {
   -webkit-text-stroke: 1px #00A651;
