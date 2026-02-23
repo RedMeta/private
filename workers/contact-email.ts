@@ -11,7 +11,7 @@ interface ContactFormData {
 }
 
 const INLINE_LOGO_CID = 'sensity-logo';
-const INLINE_LOGO_BASE64 = '/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwUAxUgCAwEAwUHDBcTFBcUDBcTGBYTFBYUFBcUHBcXGBcUGBcUGB/+2wBDAQICAgICAwYDAwYGCAcIDggICAgICAgICAcICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgD/wAARCAB4AHgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==';
+const INLINE_LOGO_URL = 'https://sensity.redmeta.top/logo.jpg';
 
 const emailStyles = `
 	<style>
@@ -279,7 +279,7 @@ const adminEmailTemplate = (data: ContactFormData) => `
 		<div class="container">
 			<div class="header">
 				<div class="header-logo">
-					<img src="cid:${INLINE_LOGO_CID}" alt="Sensity Logo" />
+					<img src="cid:${INLINE_LOGO_CID}" alt="Sensity Logo" style="display: block; width: 60px; height: 60px;" />
 				</div>
 				<div class="header-content">
 					<h1>Sensity</h1>
@@ -343,7 +343,7 @@ const customerEmailTemplate = (data: ContactFormData) => `
 		<div class="container">
 			<div class="header">
 				<div class="header-logo">
-					<img src="cid:${INLINE_LOGO_CID}" alt="Sensity Logo" />
+					<img src="cid:${INLINE_LOGO_CID}" alt="Sensity Logo" style="display: block; width: 60px; height: 60px;" />
 				</div>
 				<div class="header-content">
 					<h1>Sensity</h1>
@@ -488,8 +488,9 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		attachments: [
 			{
 				filename: 'logo.jpg',
-				content: INLINE_LOGO_BASE64,
+				path: INLINE_LOGO_URL,
 				contentId: INLINE_LOGO_CID,
+				contentType: 'image/jpeg',
 			},
 		],
 	};
@@ -522,8 +523,9 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		attachments: [
 			{
 				filename: 'logo.jpg',
-				content: INLINE_LOGO_BASE64,
+				path: INLINE_LOGO_URL,
 				contentId: INLINE_LOGO_CID,
+				contentType: 'image/jpeg',
 			},
 		],
 	};
