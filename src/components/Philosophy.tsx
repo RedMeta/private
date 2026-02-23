@@ -9,7 +9,7 @@ export function Philosophy({ theme }: PhilosophyProps) {
   return (
     <section
       id="philosophy"
-      className={`py-24 md:py-32 relative transition-colors duration-500 ${theme === 'dark' ? 'bg-charcoal text-warm-white' : 'bg-white text-near-black'}`}>
+      className={`py-24 md:py-32 relative transition-colors duration-500 ${theme === 'dark' ? 'bg-charcoal text-cream' : 'bg-cream text-coffee'}`}>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
@@ -78,12 +78,12 @@ export function Philosophy({ theme }: PhilosophyProps) {
               {t('philosophy.text1')}
             </p>
             <p
-              className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
+              className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-cream/70' : 'text-coffee/70'}`}>
 
               {t('philosophy.text2')}
             </p>
             <p
-              className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
+              className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-cream/70' : 'text-coffee/70'}`}>
 
               {t('philosophy.text3')}
             </p>

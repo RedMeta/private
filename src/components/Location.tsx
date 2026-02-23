@@ -10,7 +10,7 @@ export function Location({ theme }: LocationProps) {
   return (
     <section
       id="location"
-      className={`py-24 md:py-32 transition-colors duration-500 ${theme === 'dark' ? 'bg-charcoal text-warm-white' : 'bg-white text-near-black'}`}>
+      className={`py-24 md:py-32 transition-colors duration-500 ${theme === 'dark' ? 'bg-charcoal text-cream' : 'bg-white text-coffee'}`}>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
@@ -46,7 +46,7 @@ export function Location({ theme }: LocationProps) {
                   {t('location.businessName')}
                 </h3>
                 <p
-                  className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
+                  className={`text-lg font-light leading-relaxed ${theme === 'dark' ? 'text-cream/70' : 'text-coffee/70'}`}>
 
                   {t('location.address').split('\n').map((line, i) => (
                     <span key={i}>
@@ -59,7 +59,7 @@ export function Location({ theme }: LocationProps) {
                   href="https://maps.google.com/?q=Vore+Muçaj+20/92+Tirane+Albania"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-block mt-4 font-bold uppercase tracking-widest text-sm border-b pb-1 transition-colors duration-300 ${theme === 'dark' ? 'text-sensity-green border-sensity-green hover:text-white hover:border-white' : 'text-sensity-red border-sensity-red hover:text-black hover:border-black'}`}>
+                  className={`inline-block mt-4 font-bold uppercase tracking-widest text-sm border-b pb-1 transition-colors duration-300 ${theme === 'dark' ? 'text-sensity-green border-sensity-green hover:text-cream hover:border-cream' : 'text-sensity-red border-sensity-red hover:text-coffee hover:border-coffee'}`}>
 
                   {t('location.getDirections')}
                 </a>
@@ -104,7 +104,7 @@ export function Location({ theme }: LocationProps) {
 
                   <span className="font-medium">{t('location.days.mondayFriday')}</span>
                   <span
-                    className={`font-light ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
+                    className={`font-light ${theme === 'dark' ? 'text-cream/70' : 'text-coffee/70'}`}>
 
                     {t('location.hours.weekday')}
                   </span>
@@ -114,7 +114,7 @@ export function Location({ theme }: LocationProps) {
 
                   <span className="font-medium">{t('location.days.saturday')}</span>
                   <span
-                    className={`font-light ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
+                    className={`font-light ${theme === 'dark' ? 'text-cream/70' : 'text-coffee/70'}`}>
 
                     {t('location.hours.saturday')}
                   </span>
@@ -122,7 +122,7 @@ export function Location({ theme }: LocationProps) {
                 <div className="flex justify-between items-center">
                   <span className="font-medium">{t('location.days.sunday')}</span>
                   <span
-                    className={`font-light ${theme === 'dark' ? 'text-warm-white/70' : 'text-near-black/70'}`}>
+                    className={`font-light ${theme === 'dark' ? 'text-cream/70' : 'text-coffee/70'}`}>
 
                     {t('location.hours.sunday')}
                   </span>

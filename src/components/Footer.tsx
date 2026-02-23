@@ -8,7 +8,7 @@ export function Footer({ theme }: FooterProps) {
   const { t } = useTranslation();
   return (
     <footer
-      className={`py-12 border-t transition-colors duration-500 ${theme === 'dark' ? 'bg-black text-warm-white/40 border-white/5' : 'bg-near-black text-warm-white/60 border-black/5'}`}>
+      className={`py-12 border-t transition-colors duration-500 ${theme === 'dark' ? 'bg-black text-cream/40 border-white/5' : 'bg-cream text-coffee/60 border-black/5'}`}>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         <div className="flex items-center gap-3">
@@ -17,7 +17,7 @@ export function Footer({ theme }: FooterProps) {
             alt="Sensity Logo"
             className="h-8 w-8 rounded-full opacity-80" />
 
-          <div className="text-2xl font-serif font-black tracking-tight uppercase text-warm-white">
+          <div className={`text-2xl font-serif font-black tracking-tight uppercase ${theme === 'dark' ? 'text-cream' : 'text-coffee'}`}>
             Sensity
           </div>
         </div>

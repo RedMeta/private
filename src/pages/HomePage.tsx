@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
 import { Philosophy } from '../components/Philosophy';
 import { Collection } from '../components/Collection';
 import { Location } from '../components/Location';
-import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
 
 export function HomePage() {
@@ -22,7 +21,7 @@ export function HomePage() {
   };
   return (
     <div
-      className={`min-h-screen selection:bg-sensity-red selection:text-white transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black' : 'bg-cream'}`}>
+      className={`min-h-screen selection:bg-sensity-red selection:text-white transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black text-cream' : 'bg-cream text-coffee'}`}>
 
       <Navbar
         theme={theme}

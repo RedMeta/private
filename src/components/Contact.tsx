@@ -17,12 +17,12 @@ export function Contact({ theme }: ContactProps) {
     e.preventDefault();
     console.log('Form submitted:', formState);
   };
-  const inputClasses = `w-full bg-transparent border-b py-4 text-xl md:text-2xl focus:outline-none transition-colors duration-300 font-light ${theme === 'dark' ? 'border-white/20 focus:border-sensity-red placeholder-white/20 text-white' : 'border-black/20 focus:border-sensity-red placeholder-black/20 text-black'}`;
-  const labelClasses = `block text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-sensity-green' : 'text-sensity-red'}`;
+  const inputClasses = `w-full bg-transparent border-b py-4 text-xl md:text-2xl focus:outline-none transition-colors duration-300 font-light ${theme === 'dark' ? 'border-white/20 focus:border-sensity-red placeholder-cream/20 text-cream' : 'border-black/20 focus:border-sensity-red placeholder-coffee/20 text-coffee'}`;
+  const labelClasses = `block text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-cream' : 'text-coffee'}`;
   return (
     <section
       id="contact"
-      className={`py-24 md:py-32 transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black text-warm-white' : 'bg-cream text-near-black'}`}>
+      className={`py-24 md:py-32 transition-colors duration-500 ${theme === 'dark' ? 'bg-near-black text-cream' : 'bg-cream text-coffee'}`}>
 
       <div className="max-w-4xl mx-auto px-6 md:px-12">
         <motion.div
@@ -46,7 +46,7 @@ export function Contact({ theme }: ContactProps) {
             {t('contact.title')}
           </h2>
           <p
-            className={`text-xl font-light ${theme === 'dark' ? 'text-warm-white/60' : 'text-near-black/60'}`}>
+            className={`text-xl font-light ${theme === 'dark' ? 'text-cream/60' : 'text-coffee/60'}`}>
 
             {t('contact.subtitle')}
           </p>
@@ -168,31 +168,31 @@ export function Contact({ theme }: ContactProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <p className={`text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-sensity-green' : 'text-sensity-red'}`}>
+              <p className={`text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-cream' : 'text-coffee'}`}>
                 {t('contact.form.email')}
               </p>
               <a
                 href="mailto:sensityespres80@gmail.com"
-                className={`text-lg font-light transition-colors duration-300 ${theme === 'dark' ? 'text-warm-white hover:text-sensity-green' : 'text-near-black hover:text-sensity-red'
+                className={`text-lg font-light transition-colors duration-300 ${theme === 'dark' ? 'text-cream hover:text-sensity-green' : 'text-coffee hover:text-sensity-red'
                   }`}>
                 sensityespres80@gmail.com
               </a>
             </div>
 
             <div>
-              <p className={`text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-sensity-green' : 'text-sensity-red'}`}>
+              <p className={`text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-cream' : 'text-coffee'}`}>
                 {t('contact.phone')}
               </p>
               <div className="space-y-1">
                 <a
                   href="tel:+355695420190"
-                  className={`block text-lg font-light transition-colors duration-300 ${theme === 'dark' ? 'text-warm-white hover:text-sensity-green' : 'text-near-black hover:text-sensity-red'
+                  className={`block text-lg font-light transition-colors duration-300 ${theme === 'dark' ? 'text-cream hover:text-sensity-green' : 'text-coffee hover:text-sensity-red'
                     }`}>
                   +355 69 542 0190
                 </a>
                 <a
                   href="tel:+355683629893"
-                  className={`block text-lg font-light transition-colors duration-300 ${theme === 'dark' ? 'text-warm-white hover:text-sensity-green' : 'text-near-black hover:text-sensity-red'
+                  className={`block text-lg font-light transition-colors duration-300 ${theme === 'dark' ? 'text-cream hover:text-sensity-green' : 'text-coffee hover:text-sensity-red'
                     }`}>
                   +355 68 362 9893
                 </a>

@@ -3,7 +3,7 @@
     "title1": "Sensity",
     "title2": "Espresso",
     "title3": "Lovers",
-    "subtitle": "Rrugë të vjetra. Mëngjese të hershme. Një espresso e shkurtër, e fortë, në banak. Ai shpirt italian mbetet me ne—i rilindur te Sensity me qartësi moderne, thellësi të butë dhe një shije që zgjat.",
+    "subtitle": "Rrugë të vjetra. Mëngjese të hershme. Një espresso e shkurtër, e fortë, në banak. Ai shpirt italian mbetet me ne i rilindur te Sensity me qartësi moderne, thellësi të butë dhe një shije që zgjat.",
     "cta": "Eksploro Menunë Tonë"
   },
   "nav": {
@@ -24,25 +24,29 @@
     "title2": "Jonë",
     "viewDetails": "Shiko Detajet",
     "items": {
-      "classicEspresso": {
-        "name": "Espresso Klasike",
-        "description": "E guximshme dhe intensive, përzierja jonë karakteristike.",
-        "price": "€2.50"
+      "rojal": {
+        "name": "Rojal",
+        "description": "30% Arabica 70% Robusta - Një përzierje e guximshme me një kremë të pasur.",
+        "price": "€28/kg",
+        "image": "/products/bag-rojal.png"
       },
-      "cappuccino": {
-        "name": "Cappuccino",
-        "description": "Shkumë kadifeje takon espresso të pasur.",
-        "price": "€3.50"
+      "densa": {
+        "name": "Densa",
+        "description": "50% Arabica 50% Robusta - Një përzierje e ekuilibruar me një shije të butë.",
+        "price": "€30/kg",
+        "image": "/products/bag-densa.png"
       },
-      "macchiato": {
-        "name": "Macchiato",
-        "description": "Espresso e puthur me qumësht të avulluar.",
-        "price": "€3.00"
+      "kaffa": {
+        "name": "Kaffa",
+        "description": "80% Arabica 20% Robusta - Një përzierje e butë me një aromë të pasur.",
+        "price": "€34/kg",
+        "image": "/products/bag-kaffa.png"
       },
-      "affogato": {
-        "name": "Affogato",
-        "description": "Akullore me vanilje e mbytur në espresso.",
-        "price": "€4.50"
+      "choco": {
+        "name": "Chocolate",
+        "description": "100% Arabica - Një përzierje premium me një aromë të pasur dhe nota çokollate.",
+        "price": "€40/kg",
+        "image": "/products/bag-choco.png"
       }
     }
   },

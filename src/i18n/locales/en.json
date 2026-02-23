@@ -3,7 +3,7 @@
     "title1": "Sensity",
     "title2": "Espresso",
     "title3": "Lovers",
-    "subtitle": "Old streets. Early mornings. A short, strong espresso at the counter. That Italian spirit stays with us—reborn at Sensity with modern clarity, smooth depth, and a taste that lingers.",
+    "subtitle": "Old streets. Early mornings. A short, strong espresso at the counter. That Italian spirit stays with us reborn at Sensity with modern clarity, smooth depth, and a taste that lingers.",
     "cta": "Explore Our Menu"
   },
   "nav": {
@@ -24,25 +24,29 @@
     "title2": "Menu",
     "viewDetails": "View Details",
     "items": {
-      "classicEspresso": {
-        "name": "Classic Espresso",
-        "description": "Bold and intense, our signature blend.",
-        "price": "€2.50"
+      "rojal": {
+        "name": "Rojal",
+        "description": "30% Arabica 70% Robusta - A bold blend with a rich crema.",
+        "price": "€28/kg",
+        "image": "/products/bag-rojal.png"
       },
-      "cappuccino": {
-        "name": "Cappuccino",
-        "description": "Velvety foam meets rich espresso.",
-        "price": "€3.50"
+      "densa": {
+        "name": "Densa",
+        "description": "50% Arabica 50% Robusta - A balanced blend with a smooth taste.",
+        "price": "€30/kg",
+        "image": "/products/bag-densa.png"
       },
-      "macchiato": {
-        "name": "Macchiato",
-        "description": "Espresso kissed with steamed milk.",
-        "price": "€3.00"
+      "kaffa": {
+        "name": "Kaffa",
+        "description": "80% Arabica 20% Robusta - A smooth blend with a rich aroma.",
+        "price": "€34/kg",
+        "image": "/products/bag-kaffa.png"
       },
-      "affogato": {
-        "name": "Affogato",
-        "description": "Vanilla gelato drowned in espresso.",
-        "price": "€4.50"
+      "choco": {
+        "name": "Chocolate",
+        "description": "100% Arabica - A premium blend with a rich aroma and chocolate notes.",
+        "price": "€40/kg",
+        "image": "/products/bag-choco.png"
       }
     }
   },

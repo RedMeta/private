@@ -11,6 +11,7 @@ module.exports = {
       colors: {
         'sensity-red': '#E31E24',
         'sensity-green': '#00A651',
+        'coffee': '#2E221A',
         'cream': '#FFF8F0',
         'near-black': '#2E221A',
         'charcoal': '#433228',

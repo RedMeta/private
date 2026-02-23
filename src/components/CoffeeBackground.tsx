@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, ReactElement } from 'react';
+import React, { useEffect, useRef, ReactElement, useState } from 'react';
 
 type BeanState = {
   el: HTMLDivElement;
@@ -19,12 +19,33 @@ type CoffeeBackgroundProps = {
   className?: string;
 };
 
-const CoffeeBackground = ({ children, beanCount = 30, className = '' }: CoffeeBackgroundProps) => {
+const CoffeeBackground = ({ children, className = '' }: CoffeeBackgroundProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('orientationchange', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleResize);
+    };
+  }, []);
+
+  const beanCount = isMobile ? 20 : 50;
+
 
   useEffect(() => {
     const container = containerRef.current;
-    let randomColor = 'transparent';
+    // let randomColor = 'transparent';
 
     if (!container) return;
 
@@ -189,7 +210,7 @@ const CoffeeBackground = ({ children, beanCount = 30, className = '' }: CoffeeBa
 
   return (
     <div className={`coffee-shell ${className}`.trim()}>
-      <div className={`coffee-back blur-[1px] photo-mode'}`} ref={containerRef} aria-hidden="true" />
+      <div className={`coffee-back photo-mode'}`} ref={containerRef} aria-hidden="true" />
       <div className="coffee-content">
         {children}
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -56,10 +56,10 @@ export function Navbar({ theme, onToggleTheme, currentLanguage, onLanguageChange
   };
   const getTextColor = () => {
     if (isScrolled) {
-      return theme === 'dark' ? 'text-warm-white' : 'text-near-black';
+      return theme === 'dark' ? 'text-cream' : 'text-coffee';
     }
     // Transparent header text colors
-    return theme === 'dark' ? 'text-warm-white' : 'text-near-black';
+    return theme === 'dark' ? 'text-cream' : 'text-coffee';
   };
   return (
     <motion.nav
@@ -101,7 +101,7 @@ export function Navbar({ theme, onToggleTheme, currentLanguage, onLanguageChange
             <button
               key={link.name}
               onClick={() => scrollToSection(link.id)}
-              className={`text-sm font-medium uppercase tracking-widest hover:text-sensity-red transition-colors duration-300 relative group ${theme === 'dark' ? 'text-warm-white' : 'text-near-black'}`}>
+              className={`text-sm font-medium uppercase tracking-widest hover:text-sensity-red transition-colors duration-300 relative group ${theme === 'dark' ? 'text-cream' : 'text-coffee'}`}>
 
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-sensity-red transition-all duration-300 group-hover:w-full" />
@@ -130,7 +130,7 @@ export function Navbar({ theme, onToggleTheme, currentLanguage, onLanguageChange
 
         {/* Mobile Menu Overlay */}
         <motion.div
-          className={`fixed inset-0 flex flex-col justify-center items-center md:hidden ${theme === 'dark' ? 'bg-near-black text-warm-white' : 'bg-cream text-near-black'} ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+          className={`fixed inset-0 flex flex-col justify-center items-center md:hidden ${theme === 'dark' ? 'bg-near-black text-cream' : 'bg-cream text-coffee'} ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
           initial={{
             opacity: 0
           }}

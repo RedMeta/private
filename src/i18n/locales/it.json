@@ -3,7 +3,7 @@
     "title1": "Sensity",
     "title2": "Espresso",
     "title3": "Lovers",
-    "subtitle": "Strade antiche, prima mattina, un espresso corto e forte al bancone. Quello spirito italiano rimane con noi—rinato a Sensity con chiarezza moderna, profondità morbida e un gusto che persiste.",
+    "subtitle": "Strade antiche, prima mattina, un espresso corto e forte al bancone. Quello spirito italiano rimane con noi rinato a Sensity con chiarezza moderna, profondità morbida e un gusto che persiste.",
     "cta": "Scopri Il Nostro Menu"
   },
   "nav": {
@@ -24,25 +24,29 @@
     "title2": "Menu",
     "viewDetails": "Vedi Dettagli",
     "items": {
-      "classicEspresso": {
-        "name": "Espresso Classico",
-        "description": "Audace e intenso, la nostra miscela signature.",
-        "price": "€2.50"
+      "rojal": {
+        "name": "Rojal",
+        "description": "30% Arabica 70% Robusta - Una miscela audace con una crema ricca.",
+        "price": "€28/kg",
+        "image": "/products/rojal.jpg"
       },
-      "cappuccino": {
-        "name": "Cappuccino",
-        "description": "Schiuma vellutata incontra ricco espresso.",
-        "price": "€3.50"
+      "densa": {
+        "name": "Densa",
+        "description": "50% Arabica 50% Robusta - Una miscela equilibrata con un gusto morbido.",
+        "price": "€30/kg",
+        "image": "/products/bag-densa.png"
       },
-      "macchiato": {
-        "name": "Macchiato",
-        "description": "Espresso baciato dal latte montato.",
-        "price": "€3.00"
+      "kaffa": {
+        "name": "Kaffa",
+        "description": "80% Arabica 20% Robusta - Una miscela morbida con un aroma ricco.",
+        "price": "€34/kg",
+        "image": "/products/bag-kaffa.png"
       },
-      "affogato": {
-        "name": "Affogato",
-        "description": "Gelato alla vaniglia affogato nell'espresso.",
-        "price": "€4.50"
+      "choco": {
+        "name": "Chocolate",
+        "description": "100% Arabica - Una miscela premium con un aroma ricco e note di cioccolato.",
+        "price": "€40/kg",
+        "image": "/products/bag-choco.png"
       }
     }
   },
