@@ -279,8 +279,13 @@ const adminEmailTemplate = (data: ContactFormData) => `
 		<div class="container">
 			<div class="header">
 				<div class="header-logo">
-					<img src="cid:${INLINE_LOGO_CID}" alt="Sensity Logo" style="display: block; width: 60px; height: 60px;" />
-				</div>
+				<img
+					src="https://sensity.redmeta.top/logo.jpg"
+					alt="Sensity Logo"
+					width="60"
+					height="60"
+					style="display:block"
+				/></div>
 				<div class="header-content">
 					<h1>Sensity</h1>
 					<p>New Customer Message</p>
@@ -343,7 +348,13 @@ const customerEmailTemplate = (data: ContactFormData) => `
 		<div class="container">
 			<div class="header">
 				<div class="header-logo">
-					<img src="cid:${INLINE_LOGO_CID}" alt="Sensity Logo" style="display: block; width: 60px; height: 60px;" />
+				<img
+					src="https://sensity.redmeta.top/logo.jpg"
+					alt="Sensity Logo"
+					width="60"
+					height="60"
+					style="display:block"
+				/>
 				</div>
 				<div class="header-content">
 					<h1>Sensity</h1>
@@ -473,18 +484,6 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		});
 	}
 
-	// Fetch and encode logo
-	let logoBase64 = '';
-	try {
-		const logoResponse = await fetch(INLINE_LOGO_URL);
-		if (logoResponse.ok) {
-			const buffer = await logoResponse.arrayBuffer();
-			logoBase64 = Buffer.from(buffer).toString('base64');
-		}
-	} catch (error) {
-		console.log('Failed to fetch logo:', error);
-	}
-
 	const contactData: ContactFormData = {
 		name,
 		email,
@@ -497,14 +496,8 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		subject: `New Contact Form Submission from ${contactData.name}`,
 		reply_to: contactData.email,
 		html: adminEmailTemplate(contactData),
-		...(logoBase64 && {
+		...({
 			attachments: [
-				{
-					filename: 'logo.jpg',
-					content: logoBase64,
-					contentId: INLINE_LOGO_CID,
-					contentType: 'image/jpeg',
-				},
 			],
 		}),
 	};
@@ -534,15 +527,8 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		to: [contactData.email],
 		subject: 'Thank you for contacting Sensity',
 		html: customerEmailTemplate(contactData),
-		...(logoBase64 && {
-			attachments: [
-				{
-					filename: 'logo.jpg',
-					content: logoBase64,
-					contentId: INLINE_LOGO_CID,
-					contentType: 'image/jpeg',
-				},
-			],
+		...({
+			attachments: [],
 		}),
 	};
 
