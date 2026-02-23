@@ -23,7 +23,7 @@ export function Contact({ theme }: ContactProps) {
 
     try {
       const configuredApiUrl = (import.meta.env.VITE_API_URL || '').trim();
-      const fallbackApiUrl = `${window.location.protocol}//${window.location.hostname}:5174`;
+      const fallbackApiUrl = window.location.origin;
       const apiUrl = configuredApiUrl || fallbackApiUrl;
       const endpoint = `${apiUrl.replace(/\/$/, '')}/api/contact`;
 
