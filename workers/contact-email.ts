@@ -429,7 +429,8 @@ const corsHeaders = {
 
 export async function handleContactRequest(request: Request, env: Env): Promise<Response> {
 	const { pathname } = new URL(request.url);
-	if (pathname !== '/api/contact') {
+	const normalizedPathname = pathname.replace(/\/+$/, '') || '/';
+	if (normalizedPathname !== '/api/contact') {
 		return new Response(JSON.stringify({ error: 'Not Found' }), {
 			status: 404,
 			headers: { 'Content-Type': 'application/json', ...corsHeaders },
