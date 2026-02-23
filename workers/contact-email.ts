@@ -11,7 +11,7 @@ interface ContactFormData {
 }
 
 const INLINE_LOGO_CID = 'sensity-logo';
-const INLINE_LOGO_PATH = 'https://sensity.redmeta.top/logo.jpg';
+const INLINE_LOGO_BASE64 = '/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwwUAxUgCAwEAwUHDBcTFBcUDBcTGBYTFBYUFBcUHBcXGBcUGBcUGB/+2wBDAQICAgICAwYDAwYGCAcIDggICAgICAgICAcICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgD/wAARCAB4AHgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWm5ybnJ2eoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba2uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/2Q==';
 
 const emailStyles = `
 	<style>
@@ -488,7 +488,7 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		attachments: [
 			{
 				filename: 'logo.jpg',
-				path: INLINE_LOGO_PATH,
+				content: INLINE_LOGO_BASE64,
 				contentId: INLINE_LOGO_CID,
 			},
 		],
@@ -522,7 +522,7 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		attachments: [
 			{
 				filename: 'logo.jpg',
-				path: INLINE_LOGO_PATH,
+				content: INLINE_LOGO_BASE64,
 				contentId: INLINE_LOGO_CID,
 			},
 		],
