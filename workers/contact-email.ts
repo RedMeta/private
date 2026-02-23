@@ -276,7 +276,7 @@ const adminEmailTemplate = (data: ContactFormData) => `
 		<div class="container">
 			<div class="header">
 				<div class="header-logo">
-					<img src="https://sensity.redmeta.top/public/logo.jpg" alt="Sensity Logo" />
+					<img src="https://sensity.redmeta.top/logo.jpg" alt="Sensity Logo" />
 				</div>
 				<div class="header-content">
 					<h1>Sensity</h1>
@@ -340,7 +340,7 @@ const customerEmailTemplate = (data: ContactFormData) => `
 		<div class="container">
 			<div class="header">
 				<div class="header-logo">
-					<img src="https://sensity.redmeta.top/public/logo.jpg" alt="Sensity Logo" />
+					<img src="https://sensity.redmeta.top/logo.jpg" alt="Sensity Logo" />
 				</div>
 				<div class="header-content">
 					<h1>Sensity</h1>
