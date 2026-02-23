@@ -473,6 +473,18 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		});
 	}
 
+	// Fetch and encode logo
+	let logoBase64 = '';
+	try {
+		const logoResponse = await fetch(INLINE_LOGO_URL);
+		if (logoResponse.ok) {
+			const buffer = await logoResponse.arrayBuffer();
+			logoBase64 = Buffer.from(buffer).toString('base64');
+		}
+	} catch (error) {
+		console.log('Failed to fetch logo:', error);
+	}
+
 	const contactData: ContactFormData = {
 		name,
 		email,
@@ -485,14 +497,16 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		subject: `New Contact Form Submission from ${contactData.name}`,
 		reply_to: contactData.email,
 		html: adminEmailTemplate(contactData),
-		attachments: [
-			{
-				filename: 'logo.jpg',
-				path: INLINE_LOGO_URL,
-				contentId: INLINE_LOGO_CID,
-				contentType: 'image/jpeg',
-			},
-		],
+		...(logoBase64 && {
+			attachments: [
+				{
+					filename: 'logo.jpg',
+					content: logoBase64,
+					contentId: INLINE_LOGO_CID,
+					contentType: 'image/jpeg',
+				},
+			],
+		}),
 	};
 
 	const adminResponse = await fetch('https://api.resend.com/emails', {
@@ -518,42 +532,44 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 	const customerPayload = {
 		from: env.FROM_EMAIL,
 		to: [contactData.email],
-		subject: 'Thank you for contacting Sensity',
-		html: customerEmailTemplate(contactData),
-		attachments: [
-			{
-				filename: 'logo.jpg',
-				path: INLINE_LOGO_URL,
-				contentId: INLINE_LOGO_CID,
-				contentType: 'image/jpeg',
-			},
+		...(logoBase64 && {
+			attachments: [
+				{
+					filename: 'logo.jpg',
+					content: logoBase64,
+					contentId: INLINE_LOGO_CID,
+					contentType: 'image/jpeg',
+				},
+			],
+		})	contentType: 'image/jpeg',
+	},
 		],
-	};
+};
 
-	const customerResponse = await fetch('https://api.resend.com/emails', {
-		method: 'POST',
-		headers: {
-			Authorization: `Bearer ${env.RESEND_API_KEY}`,
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(customerPayload),
-	});
+const customerResponse = await fetch('https://api.resend.com/emails', {
+	method: 'POST',
+	headers: {
+		Authorization: `Bearer ${env.RESEND_API_KEY}`,
+		'Content-Type': 'application/json',
+	},
+	body: JSON.stringify(customerPayload),
+});
 
-	if (!customerResponse.ok) {
-		const errorText = await customerResponse.text();
-		return new Response(
-			JSON.stringify({ error: 'Failed to send email', details: errorText }),
-			{
-				status: 500,
-				headers: { 'Content-Type': 'application/json', ...corsHeaders },
-			}
-		);
-	}
+if (!customerResponse.ok) {
+	const errorText = await customerResponse.text();
+	return new Response(
+		JSON.stringify({ error: 'Failed to send email', details: errorText }),
+		{
+			status: 500,
+			headers: { 'Content-Type': 'application/json', ...corsHeaders },
+		}
+	);
+}
 
-	return new Response(JSON.stringify({ success: true }), {
-		status: 200,
-		headers: { 'Content-Type': 'application/json', ...corsHeaders },
-	});
+return new Response(JSON.stringify({ success: true }), {
+	status: 200,
+	headers: { 'Content-Type': 'application/json', ...corsHeaders },
+});
 }
 
 export default {
