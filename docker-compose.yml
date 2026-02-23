@@ -1,0 +1,34 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=production
+      - VITE_API_URL=http://api:5174
+    networks:
+      - sensity-network
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "5174:5174"
+    environment:
+      - NODE_ENV=production
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - TO_EMAIL=${TO_EMAIL:-contact@redmeta.top}
+      - FROM_EMAIL=${FROM_EMAIL:-contact@redmeta.top}
+      - SERVER_PORT=5174
+    networks:
+      - sensity-network
+    restart: unless-stopped
+
+networks:
+  sensity-network:
+    driver: bridge

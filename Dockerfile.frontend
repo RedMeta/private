@@ -1,0 +1,22 @@
+FROM oven/bun:latest AS builder
+
+WORKDIR /app
+
+COPY package.json bun.lockb* ./
+RUN bun install --frozen-lockfile
+
+COPY . .
+
+RUN bun run build
+
+# Production - serve static dist folder
+FROM oven/bun:alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/dist ./dist
+COPY src/index.ts ./src/index.ts
+
+EXPOSE 5173
+
+CMD ["bun", "src/index.ts"]

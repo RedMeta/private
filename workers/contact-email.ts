@@ -428,12 +428,23 @@ const corsHeaders = {
 };
 
 export async function handleContactRequest(request: Request, env: Env): Promise<Response> {
+	const { pathname } = new URL(request.url);
+	if (pathname !== '/api/contact') {
+		return new Response(JSON.stringify({ error: 'Not Found' }), {
+			status: 404,
+			headers: { 'Content-Type': 'application/json', ...corsHeaders },
+		});
+	}
+
 	if (request.method === 'OPTIONS') {
 		return new Response(null, { status: 204, headers: corsHeaders });
 	}
 
 	if (request.method !== 'POST') {
-		return new Response('Method Not Allowed', { status: 405 });
+		return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
+			status: 405,
+			headers: { 'Content-Type': 'application/json', ...corsHeaders },
+		});
 	}
 
 	let payload: unknown;

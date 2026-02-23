@@ -22,9 +22,12 @@ export function Contact({ theme }: ContactProps) {
     setStatus('loading');
 
     try {
-      // Use environment variable or default to localhost for development
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
-      const response = await fetch(`${apiUrl}/api/contact`, {
+      const configuredApiUrl = (import.meta.env.VITE_API_URL || '').trim();
+      const fallbackApiUrl = `${window.location.protocol}//${window.location.hostname}:5174`;
+      const apiUrl = configuredApiUrl || fallbackApiUrl;
+      const endpoint = `${apiUrl.replace(/\/$/, '')}/api/contact`;
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,9 +35,19 @@ export function Contact({ theme }: ContactProps) {
         body: JSON.stringify(formState),
       });
 
-      const data = await response.json();
+      const contentType = response.headers.get('content-type') || '';
+      const responseText = await response.text();
+      const data = contentType.includes('application/json')
+        ? JSON.parse(responseText)
+        : null;
 
-      if (response.ok) {
+      if (!contentType.includes('application/json')) {
+        setStatus('error');
+        setStatusMessage('Email API returned invalid response. Check API URL/proxy for /api/contact.');
+        return;
+      }
+
+      if (response.ok && data?.success) {
         setStatus('success');
         setStatusMessage('Thank you! Your message was sent successfully.');
         setFormState({ name: '', email: '', message: '' });
@@ -42,7 +55,7 @@ export function Contact({ theme }: ContactProps) {
         setTimeout(() => setStatus('idle'), 5000);
       } else {
         setStatus('error');
-        setStatusMessage(data.error || 'Failed to send message. Please try again.');
+        setStatusMessage(data?.error || 'Failed to send message. Please try again.');
       }
     } catch (error) {
       setStatus('error');
