@@ -10,6 +10,9 @@ interface ContactFormData {
 	message: string;
 }
 
+const INLINE_LOGO_CID = 'sensity-logo';
+const INLINE_LOGO_PATH = 'https://sensity.redmeta.top/logo.jpg';
+
 const emailStyles = `
 	<style>
 		* {
@@ -276,7 +279,7 @@ const adminEmailTemplate = (data: ContactFormData) => `
 		<div class="container">
 			<div class="header">
 				<div class="header-logo">
-					<img src="https://sensity.redmeta.top/logo.jpg" alt="Sensity Logo" />
+					<img src="cid:${INLINE_LOGO_CID}" alt="Sensity Logo" />
 				</div>
 				<div class="header-content">
 					<h1>Sensity</h1>
@@ -340,7 +343,7 @@ const customerEmailTemplate = (data: ContactFormData) => `
 		<div class="container">
 			<div class="header">
 				<div class="header-logo">
-					<img src="https://sensity.redmeta.top/logo.jpg" alt="Sensity Logo" />
+					<img src="cid:${INLINE_LOGO_CID}" alt="Sensity Logo" />
 				</div>
 				<div class="header-content">
 					<h1>Sensity</h1>
@@ -482,6 +485,13 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		subject: `New Contact Form Submission from ${contactData.name}`,
 		reply_to: contactData.email,
 		html: adminEmailTemplate(contactData),
+		attachments: [
+			{
+				filename: 'logo.jpg',
+				path: INLINE_LOGO_PATH,
+				contentId: INLINE_LOGO_CID,
+			},
+		],
 	};
 
 	const adminResponse = await fetch('https://api.resend.com/emails', {
@@ -509,6 +519,13 @@ export async function handleContactRequest(request: Request, env: Env): Promise<
 		to: [contactData.email],
 		subject: 'Thank you for contacting Sensity',
 		html: customerEmailTemplate(contactData),
+		attachments: [
+			{
+				filename: 'logo.jpg',
+				path: INLINE_LOGO_PATH,
+				contentId: INLINE_LOGO_CID,
+			},
+		],
 	};
 
 	const customerResponse = await fetch('https://api.resend.com/emails', {
