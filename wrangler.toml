@@ -1,0 +1,7 @@
+name = "sensity-contact"
+main = "workers/contact-email.ts"
+compatibility_date = "2026-02-23"
+
+[vars]
+TO_EMAIL = "alfredsinameta00@gmail.com"
+FROM_EMAIL = "contact@redmeta.top"
