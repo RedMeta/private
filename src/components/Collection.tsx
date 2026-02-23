@@ -70,7 +70,7 @@ export function Collection({ theme }: CollectionProps) {
               }}
               className={`md:hidden uppercase tracking-widest text-sm font-bold ${theme === 'dark' ? 'text-cream' : 'text-coffee'}`}>
 
-              Scroll to explore &rarr;
+              {t('menu.scrollToExplore')} &rarr;
             </motion.div>
           </div>
 
@@ -117,7 +117,7 @@ export function Collection({ theme }: CollectionProps) {
                       <img
                         src={t(`menu.items.${item.id}.image`)}
                         alt={t(`menu.items.${item.id}.name`)}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                       />
                     </div>
 

@@ -87,11 +87,11 @@ export function Navbar({ theme, onToggleTheme, currentLanguage, onLanguageChange
 
           <img
             src="/logo.jpg"
-            alt="Sensity Logo"
+            alt={t('brand.logoAlt')}
             className="h-10 w-10 rounded-full object-cover border-2 border-sensity-red group-hover:border-sensity-green transition-colors duration-300" />
 
           <span className="text-xl md:text-2xl font-serif font-bold tracking-tight uppercase">
-            Sensity
+            {t('brand.name')}
           </span>
         </button>
 

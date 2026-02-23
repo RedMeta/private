@@ -14,16 +14,16 @@ export function Footer({ theme }: FooterProps) {
         <div className="flex items-center gap-3">
           <img
             src="/logo.jpg"
-            alt="Sensity Logo"
+            alt={t('brand.logoAlt')}
             className="h-8 w-8 rounded-full opacity-80" />
 
           <div className={`text-2xl font-serif font-black tracking-tight uppercase ${theme === 'dark' ? 'text-cream' : 'text-coffee'}`}>
-            Sensity
+            {t('brand.name')}
           </div>
         </div>
 
         <div className="text-sm font-light tracking-wide">
-          &copy; {new Date().getFullYear()} Sensity Espresso Lovers. {t('footer.rights')}
+          &copy; {new Date().getFullYear()} {t('brand.fullName')}. {t('footer.rights')}
         </div>
 
         <div className="flex space-x-6">

@@ -6,6 +6,7 @@ import { Philosophy } from '../components/Philosophy';
 import { Collection } from '../components/Collection';
 import { Location } from '../components/Location';
 import { Footer } from '../components/Footer';
+import { Contact } from '../components/Contact';
 
 export function HomePage() {
   const { i18n } = useTranslation();
@@ -34,7 +35,7 @@ export function HomePage() {
         <Philosophy theme={theme} />
         <Collection theme={theme} />
         <Location theme={theme} />
-        {/* <Contact theme={theme} /> */}
+        <Contact theme={theme} />
       </main>
       <Footer theme={theme} />
     </div>);

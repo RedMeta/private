@@ -1,4 +1,9 @@
 {
+  "brand": {
+    "name": "Sensity",
+    "fullName": "Sensity Espresso Lovers",
+    "logoAlt": "Logoja e Sensity"
+  },
   "hero": {
     "title1": "Sensity",
     "title2": "Espresso",
@@ -22,6 +27,7 @@
   "menu": {
     "title1": "Menuja",
     "title2": "Jonë",
+    "scrollToExplore": "Rrëshqit për të eksploruar",
     "viewDetails": "Shiko Detajet",
     "items": {
       "rojal": {
@@ -43,7 +49,7 @@
         "image": "/products/bag-kaffa.png"
       },
       "choco": {
-        "name": "Chocolate",
+        "name": "Choco",
         "description": "100% Arabica - Një përzierje premium me një aromë të pasur dhe nota çokollate.",
         "price": "€40/kg",
         "image": "/products/bag-choco.png"
@@ -63,9 +69,9 @@
       "sunday": "E Diel"
     },
     "hours": {
-      "weekday": "7:00 - 18:00",
-      "saturday": "8:00 - 19:00",
-      "sunday": "8:00 - 17:00"
+      "weekday": "8:00 - 17:00",
+      "saturday": "8:00 - 12:00",
+      "sunday": "closed"
     }
   },
   "contact": {
@@ -77,7 +83,7 @@
       "email": "Email",
       "emailPlaceholder": "juaj@email.com",
       "message": "Mesazhi",
-      "messagePlaceholder": "Na tregoni për pasionin tuaj për kafenë...",
+      "messagePlaceholder": "Na tregoni se si mund të ndihmojmë për të shpërndarë pasionin tuaj për kafenë",
       "send": "Dërgo Mesazhin"
     },
     "directContact": "Kontakt i Drejtpërdrejtë",

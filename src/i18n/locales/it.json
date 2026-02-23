@@ -1,4 +1,9 @@
 {
+  "brand": {
+    "name": "Sensity",
+    "fullName": "Sensity Espresso Lovers",
+    "logoAlt": "Logo Sensity"
+  },
   "hero": {
     "title1": "Sensity",
     "title2": "Espresso",
@@ -22,6 +27,7 @@
   "menu": {
     "title1": "Il Nostro",
     "title2": "Menu",
+    "scrollToExplore": "Scorri per esplorare",
     "viewDetails": "Vedi Dettagli",
     "items": {
       "rojal": {
@@ -43,7 +49,7 @@
         "image": "/products/bag-kaffa.png"
       },
       "choco": {
-        "name": "Chocolate",
+        "name": "Choco",
         "description": "100% Arabica - Una miscela premium con un aroma ricco e note di cioccolato.",
         "price": "€40/kg",
         "image": "/products/bag-choco.png"
@@ -63,9 +69,9 @@
       "sunday": "Domenica"
     },
     "hours": {
-      "weekday": "7:00 - 18:00",
-      "saturday": "8:00 - 19:00",
-      "sunday": "8:00 - 17:00"
+      "weekday": "8:00 - 17:00",
+      "saturday": "8:00 - 12:00",
+      "sunday": "closed"
     }
   },
   "contact": {
@@ -77,7 +83,7 @@
       "email": "Email",
       "emailPlaceholder": "tua@email.com",
       "message": "Messaggio",
-      "messagePlaceholder": "Raccontaci della tua passione per il caffè...",
+      "messagePlaceholder": "Raccontaci come possiamo aiutarti a condividere il tuo amore per il caffè",
       "send": "Invia Messaggio"
     },
     "directContact": "Contatto Diretto",

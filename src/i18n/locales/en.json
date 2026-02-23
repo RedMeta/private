@@ -1,4 +1,9 @@
 {
+  "brand": {
+    "name": "Sensity",
+    "fullName": "Sensity Espresso Lovers",
+    "logoAlt": "Sensity Logo"
+  },
   "hero": {
     "title1": "Sensity",
     "title2": "Espresso",
@@ -22,6 +27,7 @@
   "menu": {
     "title1": "Our",
     "title2": "Menu",
+    "scrollToExplore": "Scroll to explore",
     "viewDetails": "View Details",
     "items": {
       "rojal": {
@@ -43,7 +49,7 @@
         "image": "/products/bag-kaffa.png"
       },
       "choco": {
-        "name": "Chocolate",
+        "name": "Choco",
         "description": "100% Arabica - A premium blend with a rich aroma and chocolate notes.",
         "price": "€40/kg",
         "image": "/products/bag-choco.png"
@@ -53,6 +59,7 @@
   "location": {
     "title1": "Visit",
     "title2": "Us",
+    "businessName": "Sensity Espresso Lovers",
     "address": "Vore Muçaj Nr. pasurie 20/92\nTirane\nAlbania",
     "getDirections": "Get Directions",
     "openingHours": "Opening Hours",
@@ -62,9 +69,9 @@
       "sunday": "Sunday"
     },
     "hours": {
-      "weekday": "7:00 - 18:00",
-      "saturday": "8:00 - 19:00",
-      "sunday": "8:00 - 17:00"
+      "weekday": "8:00 - 17:00",
+      "saturday": "8:00 - 12:00",
+      "sunday": "closed"
     }
   },
   "contact": {
@@ -76,7 +83,7 @@
       "email": "Email",
       "emailPlaceholder": "your@email.com",
       "message": "Message",
-      "messagePlaceholder": "Tell us about your passion for coffee...",
+      "messagePlaceholder": "Tell us how we can help share your love for coffee",
       "send": "Send Message"
     },
     "directContact": "Direct Contact",

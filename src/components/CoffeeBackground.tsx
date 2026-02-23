@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, ReactElement, useState } from 'react';
+import { useEffect, useRef, ReactElement, useState } from 'react';
 
 type BeanState = {
   el: HTMLDivElement;
