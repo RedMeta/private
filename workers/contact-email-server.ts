@@ -12,6 +12,14 @@ const server = Bun.serve({
 	hostname: '0.0.0.0',
 	port,
 	async fetch(request) {
+		const { pathname } = new URL(request.url);
+		if (pathname === '/healthz') {
+			return new Response(JSON.stringify({ ok: true }), {
+				status: 200,
+				headers: { 'Content-Type': 'application/json' },
+			});
+		}
+
 		return handleContactRequest(request, env);
 	},
 });
