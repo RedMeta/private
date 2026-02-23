@@ -84,7 +84,8 @@
       "emailPlaceholder": "tua@email.com",
       "message": "Messaggio",
       "messagePlaceholder": "Raccontaci come possiamo aiutarti a condividere il tuo amore per il caffè",
-      "send": "Invia Messaggio"
+      "send": "Invia Messaggio",
+      "sending": "Invio in corso..."
     },
     "directContact": "Contatto Diretto",
     "phone": "Telefono"

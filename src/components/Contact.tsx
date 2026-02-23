@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface ContactProps {
   theme: 'light' | 'dark';
 }
+
 export function Contact({ theme }: ContactProps) {
   const { t } = useTranslation();
   const [formState, setFormState] = useState({
@@ -13,9 +14,41 @@ export function Contact({ theme }: ContactProps) {
     email: '',
     message: ''
   });
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formState);
+    setStatus('loading');
+
+    try {
+      // Use environment variable or default to localhost for development
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setStatusMessage('Thank you! Your message was sent successfully.');
+        setFormState({ name: '', email: '', message: '' });
+        // Reset status after 5 seconds
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setStatusMessage(data.error || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setStatusMessage('Network error. Please check if the server is running and try again.');
+      console.error('Contact form error:', error);
+    }
   };
   const inputClasses = `w-full bg-transparent border-b py-4 text-xl md:text-2xl focus:outline-none transition-colors duration-300 font-light ${theme === 'dark' ? 'border-white/20 focus:border-sensity-red placeholder-cream/20 text-cream' : 'border-black/20 focus:border-sensity-red placeholder-coffee/20 text-coffee'}`;
   const labelClasses = `block text-sm uppercase tracking-widest mb-2 font-bold ${theme === 'dark' ? 'text-cream' : 'text-coffee'}`;
@@ -133,12 +166,36 @@ export function Contact({ theme }: ContactProps) {
           <div className="flex justify-center pt-8">
             <button
               type="submit"
-              className={`group flex items-center space-x-4 px-12 py-5 uppercase tracking-widest text-sm font-bold transition-all duration-300 ${theme === 'dark' ? 'bg-sensity-red text-white hover:bg-white hover:text-sensity-red' : 'bg-sensity-red text-white hover:bg-near-black hover:text-white'}`}>
+              disabled={status === 'loading'}
+              className={`group flex items-center space-x-4 px-12 py-5 uppercase tracking-widest text-sm font-bold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed ${theme === 'dark' ? 'bg-sensity-red text-white hover:bg-white hover:text-sensity-red disabled:hover:bg-sensity-red disabled:hover:text-white' : 'bg-sensity-red text-white hover:bg-near-black hover:text-white disabled:hover:bg-sensity-red disabled:hover:text-white'}`}>
 
-              <span>{t('contact.form.send')}</span>
+              <span>{status === 'loading' ? t('contact.form.sending') || 'Sending...' : t('contact.form.send')}</span>
               <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
             </button>
           </div>
+
+          {/* Status Messages */}
+          {status === 'success' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="flex items-center justify-center space-x-3 p-4 rounded-lg bg-sensity-green/10 border border-sensity-green/30">
+              <CheckCircle className="w-5 h-5 text-sensity-green" />
+              <p className="text-sensity-green font-light">{statusMessage}</p>
+            </motion.div>
+          )}
+
+          {status === 'error' && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="flex items-center justify-center space-x-3 p-4 rounded-lg bg-sensity-red/10 border border-sensity-red/30">
+              <AlertCircle className="w-5 h-5 text-sensity-red" />
+              <p className="text-sensity-red font-light">{statusMessage}</p>
+            </motion.div>
+          )}
         </motion.form>
 
         <motion.div

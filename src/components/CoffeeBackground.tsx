@@ -11,6 +11,12 @@ type BeanState = {
   size: number;
   radius: number;
   color: 'red' | 'green' | 'white';
+  depth: number;
+  floatOffset: number;
+  floatSpeed: number;
+  baseY: number;
+  maxSpeed: number;
+  hue: number;
 };
 
 type CoffeeBackgroundProps = {
@@ -96,10 +102,18 @@ const CoffeeBackground = ({ children, className = '' }: CoffeeBackgroundProps) =
       const rotation = Math.random() * 360;
       const rotationSpeed = (Math.random() * 70 - 35);
 
+      // Add depth for parallax effect
+      const depth = Math.random();
+      const floatSpeed = 1.5 + Math.random() * 4;
+      const floatOffset = Math.random() * Math.PI * 2;
+      const maxSpeed = speed;
+      const hue = Math.random() * 15 - 7.5;
+
       const state: BeanState = {
         el: bean,
         x,
         y,
+        baseY: y,
         vx: Math.cos(angle) * speed,
         vy: Math.sin(angle) * speed,
         rotation,
@@ -107,7 +121,24 @@ const CoffeeBackground = ({ children, className = '' }: CoffeeBackgroundProps) =
         size,
         radius: size / 2,
         color: 'white',
+        depth,
+        floatSpeed,
+        floatOffset,
+        maxSpeed,
+        hue,
       };
+
+      // Apply depth-based styling
+      const zIndex = Math.floor(depth * 100);
+      bean.style.zIndex = String(zIndex);
+      const opacity = 0.6 + depth * 0.4;
+      bean.style.opacity = String(opacity);
+
+      // Add subtle glow effect for closer beans
+      if (depth > 0.8) {
+        const glowIntensity = (depth - 0.8) * 5;
+        bean.style.boxShadow = `0 0 ${6 + glowIntensity * 4}px rgba(227, 30, 36, ${0.08 * glowIntensity})`;
+      }
 
       bean.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation}deg)`;
       container.appendChild(bean);
@@ -169,23 +200,24 @@ const CoffeeBackground = ({ children, className = '' }: CoffeeBackgroundProps) =
       const boundsHeight = container.clientHeight;
 
       for (const bean of beans) {
+        // Apply air resistance/damping for smooth drifting
+        bean.vx *= 0.98;
+        bean.vy *= 0.98;
+
         bean.x += bean.vx * delta;
         bean.y += bean.vy * delta;
 
-        if (bean.x <= 0) {
-          bean.x = 0;
-          bean.vx = Math.abs(bean.vx);
-        } else if (bean.x + bean.size >= boundsWidth) {
-          bean.x = Math.max(0, boundsWidth - bean.size);
-          bean.vx = -Math.abs(bean.vx);
+        // Soft wrap-around at edges instead of bouncing
+        if (bean.x <= -bean.size) {
+          bean.x = boundsWidth;
+        } else if (bean.x >= boundsWidth) {
+          bean.x = -bean.size;
         }
 
-        if (bean.y <= 0) {
-          bean.y = 0;
-          bean.vy = Math.abs(bean.vy);
-        } else if (bean.y + bean.size >= boundsHeight) {
-          bean.y = Math.max(0, boundsHeight - bean.size);
-          bean.vy = -Math.abs(bean.vy);
+        if (bean.y <= -bean.size) {
+          bean.y = boundsHeight;
+        } else if (bean.y >= boundsHeight) {
+          bean.y = -bean.size;
         }
       }
 
@@ -194,7 +226,33 @@ const CoffeeBackground = ({ children, className = '' }: CoffeeBackgroundProps) =
 
       for (const bean of beans) {
         bean.rotation += bean.rotationSpeed * delta;
-        bean.el.style.transform = `translate3d(${bean.x}px, ${bean.y}px, 0) rotate(${bean.rotation}deg)`;
+
+        // Add floating animation on top of physics
+        const floatingY = Math.sin(now / 1000 * bean.floatSpeed + bean.floatOffset) * (8 + bean.depth * 12);
+        const displayY = bean.y + floatingY;
+
+        // Parallax scale effect - closer beans appear slightly larger
+        const scale = 0.85 + bean.depth * 0.15;
+
+        // Calculate current speed for velocity-based effects
+        const currentSpeed = Math.hypot(bean.vx, bean.vy);
+        const speedRatio = currentSpeed / bean.maxSpeed;
+
+        // Velocity-based tilt - beans lean in their movement direction
+        const tiltAmount = speedRatio * 8;
+
+        // Subtle motion blur based on speed
+        const blur = speedRatio * 0.3;
+
+        // Minimal dynamic brightness
+        const brightness = 1 - (speedRatio * 0.05);
+
+        // Apply subtle hue shift
+        const filter = `blur(${blur}px) brightness(${brightness}) hue-rotate(${bean.hue * 0.4}deg)`;
+        bean.el.style.filter = filter;
+
+        // Transform with gentle perspective tilt
+        bean.el.style.transform = `translate3d(${bean.x}px, ${displayY}px, 0) rotate(${bean.rotation}deg) skewX(${tiltAmount * 0.15}deg) scale(${scale})`;
       }
 
       animationFrameId = requestAnimationFrame(tick);

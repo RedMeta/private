@@ -84,7 +84,8 @@
       "emailPlaceholder": "juaj@email.com",
       "message": "Mesazhi",
       "messagePlaceholder": "Na tregoni se si mund të ndihmojmë për të shpërndarë pasionin tuaj për kafenë",
-      "send": "Dërgo Mesazhin"
+      "send": "Dërgo Mesazhin",
+      "sending": "Duke dërguar..."
     },
     "directContact": "Kontakt i Drejtpërdrejtë",
     "phone": "Telefoni"

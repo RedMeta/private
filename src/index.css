@@ -83,6 +83,8 @@
   pointer-events: none;
   opacity: 0.8;
   transition: opacity 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  will-change: transform;
 }
 
 .coffee-content {

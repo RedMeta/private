@@ -84,7 +84,8 @@
       "emailPlaceholder": "your@email.com",
       "message": "Message",
       "messagePlaceholder": "Tell us how we can help share your love for coffee",
-      "send": "Send Message"
+      "send": "Send Message",
+      "sending": "Sending..."
     },
     "directContact": "Direct Contact",
     "phone": "Phone"
