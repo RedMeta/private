@@ -22,10 +22,7 @@ export function Contact({ theme }: ContactProps) {
     setStatus('loading');
 
     try {
-      const configuredApiUrl = (import.meta.env.VITE_API_URL || '').trim();
-      const fallbackApiUrl = window.location.origin;
-      const apiUrl = configuredApiUrl || fallbackApiUrl;
-      const endpoint = `${apiUrl.replace(/\/$/, '')}/api/contact`;
+      const endpoint = '/api/contact';
 
       const response = await fetch(endpoint, {
         method: 'POST',
